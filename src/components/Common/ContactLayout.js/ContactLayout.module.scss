@@ -1,0 +1,57 @@
+@use "../../../scss/variables" as var;
+
+.contactLayoutContainer {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 280px;
+  }
+}
+
+.businessHoursContainer {
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    font-size: 16px;
+    margin: 0;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 10px 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 16px;
+      border-bottom: 1px solid rgb(238, 238, 238);
+      .time {
+        color: var.$primaryColor;
+      }
+    }
+  }
+}
+
+.makeAppointmentContainer, .findOnFacebookContainer {
+  background: #eee;
+  padding: 20px 30px;
+  text-align: center;
+  border: 5px solid #ddd;
+
+  h4,
+  p {
+    font-size: 20px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+}

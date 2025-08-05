@@ -1,0 +1,104 @@
+@use "../../../scss/variables" as var;
+
+.homepage {
+    background: url("../../../../public/images/homepage-background.jpeg");
+    background-size: cover;
+    height: calc(100vh - 150px);
+    width: 100%;
+
+    @media (min-width: 600px) {
+        background-position: 40%;
+    }
+
+}
+
+.homepageLayout {
+    background: linear-gradient(90deg, #fff0 0, #fff0 5%, #fff);
+    height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-end;
+    font-family: "sans-serif";
+    text-align: right;
+    margin-bottom: 100px;
+
+    @media screen and (min-width: 850px) {
+            margin-bottom: 50px;
+        }
+
+    h1,
+    h2,
+    p {
+        margin: 0;
+    }
+
+    h1, h1 > span {
+        font-size: 40px;
+
+        @media screen and (min-width: 600px) {
+            font-size: 55px;
+        }
+
+        @media screen and (min-width: 900px) {
+            font-size: 70px;
+        }
+
+        span {
+            color: var.$primaryColor;
+        }
+    }
+
+    h2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-size: 30px;
+        font-weight: 400;
+        @media screen and (min-width: 600px) {
+            font-size: 40px;
+        }
+        @media screen and (min-width: 900px) {
+            font-size: 55px;
+        }
+    }
+
+    h2::after {
+        background-color: var.$primaryColor;
+        content: "";
+        display: block;
+        height: 3px;
+        margin-top: 10px;
+        position: relative;
+        right: 0;
+        width: 40%;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        font-family: "emoji";
+        width: 60%;
+        max-width: 400px;
+        @media screen and (min-width: 600px) {
+            font-size: 18px;
+        }
+
+        @media screen and (min-width: 900px) {
+            font-size: 22px;
+        }
+    }
+
+    .appointmentBtn {
+        width: 60%;
+        max-width: 400px;
+        padding: 10px;
+        box-shadow: 1px 2px 20px var.$white;
+    }
+}

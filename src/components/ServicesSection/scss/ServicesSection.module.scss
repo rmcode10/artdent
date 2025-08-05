@@ -1,0 +1,21 @@
+@use "../../../scss/variables" as var;
+
+.servicesGrid {
+  max-width: 1330px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.button {
+  color: var.$primaryColor;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 50px;
+  &:hover {
+    text-decoration: underline;
+  }
+}

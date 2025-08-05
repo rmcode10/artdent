@@ -1,0 +1,31 @@
+@use "../../../../scss/variables" as var;
+
+.menuButtonMobile {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 16px;
+    justify-content: space-between;
+    width: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+
+    span {
+        background: gray;
+        display: inline-block;
+        height: 2px;
+        width: 100%;
+
+    }
+
+    :last-child {
+        width: 75%;
+    }
+}
+
+.menuButtonMobileContainer {
+    @media (min-width: var.$breakpoint-md) {
+        display: none;
+    }
+}

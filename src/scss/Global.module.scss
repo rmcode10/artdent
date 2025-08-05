@@ -1,0 +1,31 @@
+.desktopOnlyBlock {
+    display: none;
+
+    @media (min-width: 768px) {
+        display: block;
+    }
+}
+
+.desktopOnlyFlex {
+    display: none;
+
+    @media (min-width: 768px) {
+        display: flex;
+    }
+}
+
+.mobileOnlyBlock {
+    display: block;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+.mobileOnlyFlex {
+    display: flex;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}

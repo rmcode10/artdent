@@ -1,0 +1,79 @@
+@use "../../../scss/variables" as var;
+
+.header {
+    position: sticky;
+    top: -75px;
+    z-index: 1;
+}
+
+.headerContacts {
+    background: var.$primaryColor;
+
+}
+
+.headerContactsContent, .headerNavbarContent {
+    width: 100%;
+    height: 75px;
+    color: var.$white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerNavbar {
+    background: var.$white;
+    z-index: 1;
+}
+
+.headerNavbarContent {
+    @media (min-width: "1000px") {
+        height: 100px;
+    }
+}
+
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    @media (min-width: var.$breakpoint-md) {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.logo {
+    position: relative;
+    width: 220px;
+    height: 100%;
+     @media (min-width: "1000px") {
+        width: 350px;
+
+    }
+}
+
+.desktopAppointmentBtn {
+    display: none;
+    padding: 15px;
+    white-space: nowrap;
+    @media (min-width: var.$breakpoint-md) {
+        display: block;
+    }
+} 

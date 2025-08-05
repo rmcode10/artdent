@@ -1,0 +1,69 @@
+.servicePageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.serviceContainer {
+  .serviceHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media screen and (min-width: 1115px) {
+      flex-direction: row;
+    }
+    .infosContainer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  .serviceImageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    flex: 1;
+    @media screen and (min-width: 1115px) {
+      width: 400px;
+    }
+  }
+
+  h1 {
+    font-size: 18px;
+    @media screen and (min-width: 768px) {
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+  }
+
+  p {
+    color: #666;
+  }
+}
+
+.otherServices {
+    display: none;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 30px;
+    }
+  h2::after {
+    background-color: #afb084;
+    content: "";
+    display: block;
+    height: 3px;
+    margin-top: 10px;
+    width: 40%;
+  }
+}

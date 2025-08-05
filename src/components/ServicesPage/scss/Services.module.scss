@@ -1,0 +1,87 @@
+.servicesPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.servicesContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.serviceBox {
+  width: 100%;
+  max-width: 450px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media screen and (min-width: 768px) {
+    max-width: 47.3%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 31.6%;
+  }
+
+  .serviceImageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  .serviceContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+      max-height: 150px;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .serviceLink {
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid #afb084;
+      margin-top: auto;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #afb084;
+      background-color: #f9f9f9;
+      transition: background-color 0.1s, color 0.1s, border-color 0.1s;
+      width: fit-content;
+      &:hover {
+        background-color: #afb084;
+        color: white;
+        border-color: #8f905f;
+      }
+    }
+  }
+}

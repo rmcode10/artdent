@@ -1,0 +1,31 @@
+// Colors
+$primaryColor: #afb084;
+$white: #ffffff;
+$black: #000000;
+
+// Font Sizes
+$font-size-xxs: 10px;
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-md: 18px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+$font-size-3xl: 40px;
+$font-size-4xl: 48px;
+
+// Breakpoints (mobile-first)
+$breakpoint-xs: 480px; // Extra small devices (phones)
+$breakpoint-sm: 576px; // Small devices (phones landscape)
+$breakpoint-md: 768px; // Medium devices (tablets)
+$breakpoint-lg: 992px; // Large devices (desktops)
+$breakpoint-xl: 1200px; // Extra large devices (large desktops)
+$breakpoint-xxl: 1400px; // Very large desktops
+
+$padding-xs: 16px; // ≤ 480px
+$padding-sm: 20px; // ≥ 576px
+$padding-md: 24px; // ≥ 768px
+$padding-lg: 32px; // ≥ 992px
+$padding-xl: 48px; // ≥ 1200px
+$padding-xxl: 64px; // ≥ 1400px

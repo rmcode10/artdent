@@ -1,0 +1,29 @@
+@use "../../../scss/variables" as var;
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media (min-width: 600px) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @media (min-width: 850px) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    @media (min-width: 1000px) {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    @media (min-width: var.$breakpoint-xl) {
+        padding-left: var.$padding-xl;
+        padding-right: var.$padding-xl;
+        max-width: 1440px;
+    }
+}

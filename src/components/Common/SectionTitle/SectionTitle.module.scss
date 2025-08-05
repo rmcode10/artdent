@@ -1,0 +1,25 @@
+.sectionTitle {
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        margin-bottom: 56px;
+        margin-top: 56px;
+        text-align: center;
+        font-size: 30px;
+
+        @media screen and (min-width: 500px) {
+            font-size: 40px;
+        }
+
+        &::after {
+            background-color: #afb084;
+            content: "";
+            display: block;
+            height: 3px;
+            margin-top: 10px;
+            width: 40%;
+        }
+    }
+
+}
