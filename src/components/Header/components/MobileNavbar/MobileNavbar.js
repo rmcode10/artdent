@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import cx from "clsx";
 import styles from "./MobileNavbar.module.scss";
@@ -14,8 +15,15 @@ import {
 } from "@/consts/general";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const MobileNavbar = ({ isActive, setIsActive }) => {
+  const pathname = usePathname();
+
+  const isActiveLink = (item) => {
+    return pathname === item.href;
+  };
+
   return (
     <>
       {isActive && <div className={styles.mobileLayout}></div>}
@@ -30,16 +38,17 @@ const MobileNavbar = ({ isActive, setIsActive }) => {
         </button>
         <div className={styles.mobileNavbarContent}>
           <div className={styles.logo}>
-            <Image
-              src="/logos/verticalLogo.jpeg"
-              alt="ArtDent Logo"
-              fill
-            />
+            <Image src="/logos/verticalLogo.jpeg" alt="ArtDent Logo" fill />
           </div>
           <ul className={styles.navList}>
             {navList.map((item) => (
-              <li key={item.label}>
-                <Link href={item.href}>{item.label}</Link>
+              <li
+                key={item.label}
+                className={cx(isActiveLink(item) && styles.isActive)}
+              >
+                <button onClick={() => setIsActive(false)}>
+                  <Link href={item.href}>{item.label}</Link>
+                </button>
               </li>
             ))}
           </ul>

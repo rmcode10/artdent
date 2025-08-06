@@ -1,0 +1,30 @@
+.tratamentePageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.tratamenteContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  @media screen and (min-width: 1050px) {
+    justify-content: flex-start;
+  }
+}
+
+.tratamenteImageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1/1;
+  @media screen and (min-width: 1050px) {
+    max-width: 50%;
+  }
+}

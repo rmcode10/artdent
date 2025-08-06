@@ -1,112 +1,130 @@
 @use "../../../../scss/variables" as var;
 
 .mobileLayout {
-    background: #0006;
-    bottom: 0;
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
+  background: #0006;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 .mobileNavbarContainer {
-    background: var.$white;
-    bottom: 0;
-    box-sizing: border-box;
-    color: #6c6b6b;
-    display: flex;
-    flex-direction: column;
-    font-weight: 700;
-    max-width: 80%;
-    padding: 24px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    transform: translateX(320px);
-    transition: .3s ease;
-    width: 320px;
-    z-index: 9;
+  background: var.$white;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  max-width: 80%;
+  padding: 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(320px);
+  transition: 0.3s ease;
+  width: 320px;
+  z-index: 9;
 
-    &.active {
-        transform: translateX(0);
-    }
+  &.active {
+    transform: translateX(0);
+  }
 }
 
 .closeButton {
-    background: none;
-    border: none;
-    text-align: right;
-    color: #6c6b6b;
-    font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: 550;
+  background: none;
+  border: none;
+  text-align: right;
+  color: #6c6b6b;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 550;
 }
 
 .mobileNavbarContent {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .logo {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navList {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    gap: 16px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
 
-    li {
-        padding: 8px;
+  li {
+    padding: 8px;
 
-        a {
-            color: inherit;
-            text-decoration: none;
-            font-size: 16px;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+    &.isActive {
+        color: var.$primaryColor;
+        border-bottom: 1px solid var.$primaryColor;
     }
+
+    button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 16px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .contactInfo {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .contactItems {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .contactItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
 }
 
 .appointmentBtn {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 30px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
 }
