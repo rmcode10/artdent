@@ -2,9 +2,11 @@ import React from "react";
 import cx from "clsx";
 import styles from "./Button.module.scss";
 
-const Button = ({ children, className }) => {
+const Button = ({ children, className, onClick }) => {
   return (
-    <button className={cx(styles.primaryBtn, className)}>{children}</button>
+    <button className={cx(styles.primaryBtn, className)} onClick={onClick}>
+      {children}
+    </button>
   );
 };
 

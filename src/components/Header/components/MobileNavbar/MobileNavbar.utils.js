@@ -15,8 +15,4 @@ export const navList = [
     label: "Tarife",
     href: "/tarife",
   },
-  {
-    label: "Recenzii",
-    href: "/recenzii",
-  },
 ];

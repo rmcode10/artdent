@@ -17,6 +17,7 @@
 }
 
 .navBarList {
+  position: relative;
   display: flex;
   font-size: 15px;
   font-weight: 700;
@@ -40,6 +41,74 @@
       color: var.$primaryColor;
       border-bottom: 1px solid var.$primaryColor;
       text-decoration: none;
+    }
+  }
+  .searchButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .searchInput {
+    width: 0;
+    position: absolute;
+    right: 32px;
+    border: none;
+    color: var.$primaryColor;
+    border-bottom: 1px solid var.$primaryColor;
+    outline: none;
+    height: 30px;
+    padding: 0;
+    transition: all 0.3s ease;
+    &.active {
+      width: 100%;
+    }
+  }
+
+  .searchSuggestions {
+    position: absolute;
+    width: 100%;
+    right: 32px;
+    top: 35px;
+    list-style: none;
+    background: white;
+    z-index: 1;
+    padding: 0;
+    border: 1px solid var.$primaryColor;
+    border-radius: 5px;
+    li {
+      border-bottom: 1px solid #dddddd;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      &:hover {
+        background: #f5f5f5;
+        cursor: pointer;
+      }
+      .suggestionLink {
+        color: var.$primaryColor;
+        width: 100%;
+        padding: 10px;
+        display: block;
+        text-decoration: none;
+      }
+      &.noResults {
+        text-align: center;
+        padding: 10px;
+        color: var.$primaryColor;
+        border: none;
+        cursor: default;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        &:hover {
+          background: white;
+          cursor: default;
+        }
+        svg {
+          color: var.$primaryColor;
+        }
+      }
     }
   }
 }

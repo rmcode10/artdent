@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import styles from "./scss/Header.module.scss";
 import globalClasses from "@/scss/Global.module.scss";
@@ -20,6 +20,14 @@ import Link from "next/link";
 const Header = () => {
   const [isMobileNavbarActive, setisMobileNavbarActive] = useState(false);
 
+  useEffect(() => {
+    if (isMobileNavbarActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMobileNavbarActive]);
+
   return (
     <header className={styles.header}>
       <div className={styles.headerContacts}>
@@ -29,7 +37,12 @@ const Header = () => {
               <p className={styles.contactItem}>
                 <PhoneIcon /> <span>{PHONE_NUMBER}</span>
               </p>
-              <p className={cx(styles.contactItem, globalClasses.desktopOnlyFlex)}>
+              <p
+                className={cx(
+                  styles.contactItem,
+                  globalClasses.desktopOnlyFlex,
+                )}
+              >
                 <EmailIcon /> <span>{EMAIL_ADDRESS}</span>
               </p>
               <p className={cx(styles.contactItem)}>
@@ -55,7 +68,7 @@ const Header = () => {
             />
             <DesktopNavbar />
             <Button className={styles.desktopAppointmentBtn}>
-              Fa o programare
+              <Link href="/programare">Programează-te</Link>
             </Button>
           </div>
         </Wrapper>

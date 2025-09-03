@@ -26,10 +26,6 @@ const ServicePageLayout = ({ children, image }) => {
     <FacebookIcon color={PRIMARY_COLOR} width="100%" height="30px" />
   );
 
-  const otherServices = services.filter(
-    (service) => service.title !== "Profilaxie dentară",
-  );
-
   return (
     <Wrapper>
       <div className={styles.servicePageContainer}>

@@ -1,0 +1,64 @@
+@use "../../../../scss/variables" as var;
+
+.headerPreturi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  button {
+    padding: 10px 20px;
+  }
+}
+
+.listaPreturi {
+  table {
+    margin-bottom: 10px;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      width: 100%;
+      outline: none;
+      border: 1px solid gray;
+    }
+    th {
+      font-weight: bold;
+      color: var.$primaryColor;
+      border: 1px solid var.$primaryColor;
+      padding: 10px;
+      &.longColumn {
+        width: 70%;
+      }
+    }
+    td {
+      padding: 5px;
+      border: 1px solid var.$primaryColor;
+
+      &.longColumn {
+        width: 70%;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    button {
+      padding: 10px 20px;
+      &.secondary {
+        background: none;
+        border: 1px solid var.$primaryColor;
+        color: var.$primaryColor;
+      }
+      &.secondary:hover {
+        background: var.$primaryColor;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}

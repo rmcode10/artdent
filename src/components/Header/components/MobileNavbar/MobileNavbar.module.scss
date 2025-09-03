@@ -75,8 +75,8 @@
     padding: 8px;
 
     &.isActive {
-        color: var.$primaryColor;
-        border-bottom: 1px solid var.$primaryColor;
+      color: var.$primaryColor;
+      border-bottom: 1px solid var.$primaryColor;
     }
 
     button {
@@ -100,6 +100,9 @@
         text-decoration: underline;
       }
     }
+  }
+  li.searchListItem {
+    padding: 0;
   }
 }
 
@@ -127,4 +130,65 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 30px;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  padding-left: 35px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid var.$primaryColor;
+
+  .searchInput {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: var.$primaryColor;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchSuggestions {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  list-style: none;
+  background: white;
+  z-index: 1;
+  padding: 0;
+  max-height: 200px;
+  overflow: auto;
+  li {
+    border-bottom: 1px solid #dddddd;
+    .suggestionLink {
+      color: var.$primaryColor;
+      width: 100%;
+      padding: 5px;
+      display: block;
+      text-decoration: none;
+    }
+    &.noResults {
+      text-align: center;
+      padding: 10px;
+      // color: var.$primaryColor;
+      border: none;
+      cursor: default;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      svg {
+        color: var.$primaryColor;
+      }
+    }
+  }
 }

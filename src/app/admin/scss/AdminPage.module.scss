@@ -1,0 +1,43 @@
+@use "../../../scss/variables" as var;
+
+.adminPageContainer {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 175px);
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  border-radius: 5px;
+  box-shadow: 3px 0px 24px rgba(0, 0, 0, 0.5);
+}
+
+.adminPageLinks {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background: var.$primaryColor;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: var.$white;
+
+  a {
+    color: var.$white;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-radius: 5px;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      background: #989a6e;
+    }
+  }
+}
+
+.adminPageContent {
+  flex: 1;
+  padding: 30px;
+}

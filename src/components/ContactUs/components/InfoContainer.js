@@ -5,16 +5,18 @@ import styles from "./InfoContainer.module.scss";
 import { EMAIL_ADDRESS, PHONE_NUMBER, PRIMARY_COLOR } from "@/consts/general";
 import Image from "next/image";
 
-const InfoContainer = () => {
+const InfoContainer = ({ noLogo }) => {
   return (
     <div className={styles.infoContainer}>
-      <div className={styles.verticalLogo}>
-        <Image
-          src="/logos/verticalLogo.jpeg"
-          fill
-          alt="ArtDent Vertical Logo"
-        />
-      </div>
+      {!noLogo && (
+        <div className={styles.verticalLogo}>
+          <Image
+            src="/logos/verticalLogo.jpeg"
+            fill
+            alt="ArtDent Vertical Logo"
+          />
+        </div>
+      )}
       <div>
         <p>
           Completează formularul și vei primi un telefon din partea colegilor

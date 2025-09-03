@@ -9,14 +9,14 @@ const CategoryCard = ({ category, services }) => {
         <thead>
           <tr>
             <th>Denumire Serviciu</th>
-            <th>Preț</th>
+            <th className={styles.priceColumn}>Preț</th>
           </tr>
         </thead>
         <tbody>
           {services.map((service, index) => (
             <tr key={index}>
               <td>{service.name}</td>
-              <td>{service.price} ron</td>
+              <td className={styles.priceColumn}>{service.price} ron</td>
             </tr>
           ))}
         </tbody>
