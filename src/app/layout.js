@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ArtDent - Clinica Dentara",
-  description: "Clinica Dentara - Servicii de calitate pentru zambetul tau",
+  title: "ArtDent - Clinica Stomatologica",
+  description: "Clinica Stomatologica - Servicii de calitate pentru zambetul tau",
 };
 
 export default function RootLayout({ children }) {
