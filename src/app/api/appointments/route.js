@@ -1,9 +1,8 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies, headers } from "next/headers";
 
-const supabase = createServerComponentClient({ headers, cookies });
-
 export const GET = async () => {
+  const supabase = createServerComponentClient({ headers, cookies });
   try {
     const { data: appointments, error: appointmentsError } = await supabase
       .from("appointments")
@@ -21,6 +20,7 @@ export const GET = async () => {
 };
 
 export const POST = async (req) => {
+  const supabase = createServerComponentClient({ headers, cookies });
   try {
     const appointment = await req.json();
 

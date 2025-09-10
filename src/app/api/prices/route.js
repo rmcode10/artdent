@@ -1,9 +1,9 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies, headers } from "next/headers";
 
-const supabase = createServerComponentClient({ headers, cookies });
-
 export async function GET() {
+  const supabase = createServerComponentClient({ headers, cookies });
+
   try {
     const { data: services, error: servicesError } = await supabase
       .from("services")
@@ -26,6 +26,8 @@ export async function GET() {
 }
 
 export async function POST(req) {
+  const supabase = createServerComponentClient({ headers, cookies });
+
   try {
     const service = await req.json();
 
@@ -48,6 +50,8 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
+  const supabase = createServerComponentClient({ headers, cookies });
+
   try {
     const service = await req.json();
 
@@ -68,11 +72,10 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
+  const supabase = createServerComponentClient({ headers, cookies });
   try {
     const { id } = await req.json();
-
     await supabase.from("services").delete().eq("id", id);
-
     return new Response(
       JSON.stringify({ message: "Service deleted successfully" }),
       { status: 200 },
