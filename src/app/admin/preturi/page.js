@@ -1,9 +1,8 @@
-"use client";
 import React from "react";
 import AdminLayout from "../components/AdminLayout";
 import Preturi from "./components/Preturi";
 
-const page = () => {
+const page = async () => {
   return (
     <AdminLayout>
       <Preturi />

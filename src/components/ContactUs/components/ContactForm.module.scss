@@ -1,56 +1,88 @@
 @use "../../../scss/variables" as var;
 
 .formContainer {
-    border: 1px solid #b0b0b0;
-    box-shadow: 0 0 17px 4px #00000059;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    padding: 20px;
+  border: 1px solid #b0b0b0;
+  box-shadow: 0 0 17px 4px #00000059;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  padding: 20px;
 }
 
 .inputContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 
-    label {
-        font-weight: 700;
-        font-size: 16px;
-        color: var.$primaryColor;
-    }
+  label {
+    font-weight: 700;
+    font-size: 16px;
+    color: var.$primaryColor;
+  }
 
-    input,
-    textarea {
-        border: 1px solid #c6c0c0;
-        border-radius: 5px;
-        font-size: 16px;
-        outline: none;
-        padding: 8px;
-        resize: none;
-        width: 100%;
-    }
+  input,
+  textarea {
+    border: 1px solid #c6c0c0;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    padding: 8px;
+    resize: none;
+    width: 100%;
+  }
 }
 
 .checkboxesContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .formCheckbox {
-    display: flex;
-    align-items: flex-start;
-    gap: 4px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
 
-    label {
-        color: #a8a5a5;
-        font-weight: 500;
-    }
+  label {
+    color: #a8a5a5;
+    font-weight: 500;
+  }
 }
 
 .submitButton {
-    padding: 10px;
-    margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 25px;
+}
+
+.alertBase {
+  margin-top: 25px;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.alertSuccess {
+  @extend .alertBase;
+  background-color: #e6f9f0;
+  border-color: #2ecc71;
+  color: #2d7a4b;
+}
+
+.alertError {
+  @extend .alertBase;
+  background-color: #fdecea;
+  border-color: #e74c3c;
+  color: #a1231f;
+}
+
+.inputError {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+  border-color: #e74c3c;
 }

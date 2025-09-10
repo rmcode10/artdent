@@ -62,3 +62,33 @@
     }
   }
 }
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.deleteButton {
+      border: 1px solid #c01010;
+      border-radius: 3px;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #c01010;
+    }
+    &.saveButton {
+      color: var.$primaryColor;
+    }
+  }
+}
+
+.newServiceButton {
+  padding: 5px 10px;
+  border-radius: 5px;
+}

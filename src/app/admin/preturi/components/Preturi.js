@@ -3,76 +3,75 @@ import Select from "@/components/Common/Select/Select";
 import React, { useEffect, useState } from "react";
 import styles from "./Preturi.module.scss";
 import Button from "@/components/Common/Button/Button";
-import { getPrices } from "@/app/HttpServices";
+import { useServices } from "./hooks/useServices";
 
 const Preturi = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [editMode, setEditMode] = useState(false);
-  const [prices, setPrices] = useState([]);
-  const [tarifeList, setTarifeList] = useState([]);
+  const [editService, setEditService] = useState({});
+  const [createService, setCreateService] = useState(null);
 
-  const categoriiTarife = prices?.map((tarif) => ({
-    label: tarif.category,
-    value: tarif.category,
+  const { services, categories, fetchServicesAndCategories } = useServices();
+
+  const categoryOptions = categories?.map((category) => ({
+    label: category.name,
+    value: category.id,
   }));
 
-  const servicesList =
-    prices?.find((tarif) => tarif.category === selectedCategory?.value)
-      ?.services || [];
-
-  const enableEditMode = () => {
-    setEditMode(true);
-    setTarifeList(servicesList);
-  };
-
-  useEffect(() => {
-    try {
-      const fetchData = async () => {
-        const prices = await getPrices();
-        setPrices(prices);
-      };
-      fetchData();
-    } catch (error) {
-      console.error("Error fetching prices:", error);
-    }
-  }, []);
-
-  const handleSave = async () => {
-    const updatedPrices = prices.map((tarif) => {
-      if (tarif.category === selectedCategory.value) {
-        return {
-          ...tarif,
-          services: tarifeList.map((service) => ({
-            name: service.name,
-            price: service.price,
-          })),
-        };
-      }
-      return tarif;
-    });
-    try {
-      const res = await fetch("/api/prices", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedPrices),
-      });
-
-      if (!res.ok) throw new Error("Failed to update prices");
-
-      const data = await res.json();
-      setEditMode(false);
-      setTarifeList([]);
-      setPrices(updatedPrices);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const selectedCategoryServices = services?.filter(
+    (service) => service.category_id === selectedCategory?.value,
+  );
 
   useEffect(() => {
     if (!selectedCategory) {
-      setSelectedCategory(categoriiTarife[0] || null);
+      setSelectedCategory(categoryOptions[0] || null);
     }
-  }, [categoriiTarife, selectedCategory]);
+  }, [categoryOptions, selectedCategory]);
+
+  const handleEdit = (service) => {
+    setEditService(service);
+  };
+
+  const handleEditService = () => {
+    fetch("/api/prices", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editService),
+    }).then(() => {
+      setEditService({});
+      fetchServicesAndCategories();
+    });
+  };
+
+  const handleCreateService = () => {
+    fetch("/api/prices", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createService),
+    }).then(() => {
+      setCreateService(null);
+      fetchServicesAndCategories();
+    });
+  };
+
+  const handleDeleteService = (id) => {
+    fetch("/api/prices", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    }).then(() => {
+      fetchServicesAndCategories();
+    });
+  };
+
+  useEffect(() => {
+    fetchServicesAndCategories();
+  }, [fetchServicesAndCategories]);
 
   return (
     <>
@@ -82,16 +81,13 @@ const Preturi = () => {
           <Select
             value={selectedCategory}
             onChange={(option) => {
-              setEditMode(false);
-              setTarifeList([]);
               setSelectedCategory(option);
+              setEditService({});
+              setCreateService(null);
             }}
-            options={categoriiTarife}
+            options={categoryOptions}
           />
         </div>
-        {Boolean(selectedCategory) && (
-          <Button onClick={enableEditMode}>Editare Preturi</Button>
-        )}
       </div>
       {Boolean(selectedCategory) && (
         <div className={styles.listaPreturi}>
@@ -100,64 +96,140 @@ const Preturi = () => {
               <tr>
                 <th className={styles.longColumn}>Serviciu</th>
                 <th>Pret</th>
+                <th>Actiuni</th>
               </tr>
             </thead>
             <tbody>
-              {!editMode
-                ? servicesList.map((service) => (
-                    <tr key={service.name}>
-                      <td className={styles.longColumn}>{service.name}</td>
-                      <td>{service.price} RON</td>
-                    </tr>
-                  ))
-                : tarifeList.map((service, index) => (
-                    <tr key={index}>
-                      <td className={styles.longColumn}>
-                        <input
-                          type="text"
-                          value={service.name}
-                          onChange={(e) => {
-                            const updatedName = e.target.value;
-                            setTarifeList((prev) =>
-                              prev.map((s, i) =>
-                                i === index ? { ...s, name: updatedName } : s,
-                              ),
-                            );
-                          }}
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="text"
-                          value={service.price}
-                          onChange={(e) => {
-                            const updatedPrice = e.target.value;
-                            setTarifeList((prev) =>
-                              prev.map((s, i) =>
-                                i === index ? { ...s, price: updatedPrice } : s,
-                              ),
-                            );
-                          }}
-                        />
-                      </td>
-                    </tr>
-                  ))}
+              {selectedCategoryServices.map((service) =>
+                // Edit Mode
+                editService.id === service.id ? (
+                  <tr key={service.id}>
+                    <td className={styles.longColumn}>
+                      <input
+                        type="text"
+                        value={editService.name}
+                        onChange={(e) =>
+                          setEditService({
+                            ...editService,
+                            name: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={editService.price}
+                        onChange={(e) =>
+                          setEditService({
+                            ...editService,
+                            price: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
+                    <td>
+                      <div className={styles.actionButtons}>
+                        <button
+                          onClick={handleEditService}
+                          className={styles.saveButton}
+                        >
+                          Save
+                        </button>
+                        <button
+                          onClick={() => handleEdit({})}
+                          className={styles.deleteButton}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ) : (
+                  //
+                  <tr key={service.id}>
+                    <td className={styles.longColumn}>{service.name}</td>
+                    <td>{service.price} RON</td>
+                    <td>
+                      <div className={styles.actionButtons}>
+                        <button onClick={() => handleEdit(service)}>
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDeleteService(service.id)}
+                          className={styles.deleteButton}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ),
+              )}
+              <tr>
+                <td>
+                  {createService ? (
+                    <input
+                      type="text"
+                      value={createService.name}
+                      onChange={(e) =>
+                        setCreateService({
+                          ...createService,
+                          name: e.target.value,
+                        })
+                      }
+                    />
+                  ) : null}
+                </td>
+                <td>
+                  {createService ? (
+                    <input
+                      type="text"
+                      value={createService.price}
+                      onChange={(e) =>
+                        setCreateService({
+                          ...createService,
+                          price: e.target.value,
+                        })
+                      }
+                    />
+                  ) : null}
+                </td>
+                <td>
+                  {createService ? (
+                    <div className={styles.actionButtons}>
+                      <button
+                        onClick={handleCreateService}
+                        className={styles.saveButton}
+                      >
+                        Create
+                      </button>
+                      <button
+                        onClick={() => setCreateService(null)}
+                        className={styles.deleteButton}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <Button
+                      className={styles.newServiceButton}
+                      isDisabled={editService.id}
+                      onClick={() =>
+                        setCreateService({
+                          category_id: selectedCategory.value,
+                          name: "",
+                          price: "",
+                        })
+                      }
+                    >
+                      Serviciu Nou
+                    </Button>
+                  )}
+                </td>
+              </tr>
             </tbody>
           </table>
-          {editMode && (
-            <div className={styles.buttons}>
-              <Button
-                onClick={() => {
-                  setEditMode(false);
-                  setTarifeList([]);
-                }}
-                className={styles.secondary}
-              >
-                Anuleaza
-              </Button>
-              <Button onClick={handleSave}>Salveaza</Button>
-            </div>
-          )}
         </div>
       )}
     </>

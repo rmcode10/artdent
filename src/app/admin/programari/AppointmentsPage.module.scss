@@ -1,0 +1,14 @@
+@use "../../../scss/variables" as var;
+
+.appointmentsTable {
+    width: 100%;
+}
+
+.appointmentRow {
+    color: #989a6e;
+    td {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+
+    }
+}

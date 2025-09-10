@@ -1,57 +1,85 @@
-import clientPromise from "@/server/lib/mongodb";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies, headers } from "next/headers";
 
-export const GET = async () => {
+const supabase = createServerComponentClient({ headers, cookies });
+
+export async function GET() {
   try {
-    const client = await clientPromise;
-    const db = client.db(process.env.MONGODB_DB || "artdentdb");
+    const { data: services, error: servicesError } = await supabase
+      .from("services")
+      .select("*")
+      .order("id", { ascending: true });
 
-    const prices = await db.collection("prices").find({}).toArray();
+    const { data: categories, error: categoriesError } = await supabase
+      .from("categories")
+      .select("*")
+      .order("id", { ascending: true });
 
-    return new Response(JSON.stringify({ data: prices[0].data }), {
+    return new Response(JSON.stringify({ services, categories }), {
       status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
     });
-  } catch (error) {
-    console.error("Failed to connect to the database:", error); 
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+    });
+  }
+}
+
+export async function POST(req) {
+  try {
+    const service = await req.json();
+
+    await supabase.from("services").insert({
+      name: service.name,
+      price: service.price,
+      category_id: service.category_id,
+    });
     return new Response(
-      JSON.stringify({
-        error: "Database connection failed",
-        details: error.message, 
-        stack: process.env.NODE_ENV === "development" ? error.stack : undefined
-      }),
+      JSON.stringify({ message: "Service created successfully" }),
       {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+        status: 200,
+      },
     );
-  }
-};
-
-
-
-export const POST = async (request) => {
-  try {
-    const newData = await request.json();
-
-    const client = await clientPromise;
-    const db = client.db(process.env.MONGODB_DB || "artdentdb");
-
-    await db.collection("prices").replaceOne(
-      {},
-      { data: newData },
-      { upsert: true }
-    );
-
-    return new Response(JSON.stringify({ message: "Prices updated successfully" }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
     });
-  } catch (error) {
-    console.log("Failed to update prices:", error);
-    return new Response("Failed to update prices", { status: 500 });
   }
-};
+}
+
+export async function PUT(req) {
+  try {
+    const service = await req.json();
+
+    await supabase
+      .from("services")
+      .update({ name: service.name, price: service.price })
+      .eq("id", service.id);
+
+    return new Response(
+      JSON.stringify({ message: "Services updated successfully" }),
+      { status: 200 },
+    );
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+    });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { id } = await req.json();
+
+    await supabase.from("services").delete().eq("id", id);
+
+    return new Response(
+      JSON.stringify({ message: "Service deleted successfully" }),
+      { status: 200 },
+    );
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+    });
+  }
+}
