@@ -5,6 +5,8 @@ import Wrapper from "../Wrapper/Wrapper";
 import ContactLayout from "../Common/ContactLayout.js/ContactLayout";
 import { supabase } from "@/server/lib/supabaseClient";
 
+export const dynamic = "force-dynamic";
+
 const Tarife = async () => {
   const { data: services, error } = await supabase
     .from("services")
