@@ -21,8 +21,8 @@ const ProgramariPage = () => {
           <tr>
             <td>Nume</td>
             <td>Telefon</td>
-            <td>Mesaj</td>
             <td>Data</td>
+            <td>Mesaj</td>
           </tr>
         </thead>
         <tbody>
@@ -30,8 +30,12 @@ const ProgramariPage = () => {
             <tr key={appointment.id} className={styles.appointmentRow}>
               <td>{appointment.name}</td>
               <td>{appointment.phone}</td>
-              <td>{appointment.message}</td>
               <td>{new Date(appointment.created_at).toLocaleString()}</td>
+              <td>
+                <div className={styles.messageContainer}>
+                  {appointment.message}
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
