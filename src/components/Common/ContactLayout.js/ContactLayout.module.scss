@@ -40,15 +40,20 @@
   }
 }
 
-.makeAppointmentContainer, .findOnFacebookContainer {
+.makeAppointmentContainer,
+.findOnFacebookContainer {
   background: #eee;
   padding: 20px 30px;
   text-align: center;
   border: 5px solid #ddd;
 
-  h4,
-  p {
+  h4 {
     font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 14px;
   }
   button {
     width: 100%;

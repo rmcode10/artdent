@@ -16,9 +16,18 @@ import DesktopNavbar from "./components/DesktopNavbar/DesktopNavbar";
 import Button from "../Common/Button/Button";
 import Image from "next/image";
 import Link from "next/link";
+import SearchIcon from "@/assets/icons/SearchIcon";
+import SadFaceIcon from "@/assets/icons/SadFaceIcon";
+import { allPages } from "./Header.utils";
 
 const Header = () => {
   const [isMobileNavbarActive, setisMobileNavbarActive] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchWord, setSearchWord] = useState("");
+
+  const searchResults = allPages.filter((page) =>
+    page.label.toLowerCase().includes(searchWord.toLowerCase()),
+  );
 
   useEffect(() => {
     if (isMobileNavbarActive) {
@@ -60,16 +69,75 @@ const Header = () => {
         <Wrapper>
           <div className={styles.headerNavbarContent}>
             <Link className={styles.logo} href="/">
-              <Image src="/logos/headerLogo.svg" alt="ArtDent Logo" fill />
+              <Image
+                src="/logos/headerLogo.svg"
+                alt="ArtDent Logo"
+                fill
+                className={cx(
+                  styles.logoImage,
+                  searchOpen && styles.withSearch,
+                )}
+              />
             </Link>
             <MenuButtonMobile
               isActive={isMobileNavbarActive}
               setIsActive={setisMobileNavbarActive}
             />
-            <DesktopNavbar />
-            <Button className={styles.desktopAppointmentBtn}>
-              <Link href="/programare">Programează-te</Link>
-            </Button>
+            <DesktopNavbar searchOpen={searchOpen} />
+            <div className={styles.searchContainer}>
+              <div className={styles.searchBox}>
+                <input
+                  type="text"
+                  placeholder="Caută..."
+                  value={searchWord}
+                  onChange={(e) => setSearchWord(e.target.value)}
+                  className={cx(styles.searchInput, {
+                    [styles.active]: searchOpen,
+                  })}
+                />
+                {searchWord.length >= 1 && (
+                  <ul className={styles.searchSuggestions}>
+                    {searchResults.length > 0 ? (
+                      searchResults.map((page) => {
+                        return (
+                          <li key={page.href} className={styles.suggestionItem}>
+                            <Link
+                              href={page.href}
+                              className={styles.suggestionLink}
+                              onClick={() => {
+                                setSearchWord("");
+                                setSearchOpen(false);
+                              }}
+                            >
+                              {page.label}
+                            </Link>
+                          </li>
+                        );
+                      })
+                    ) : (
+                      <li
+                        className={cx(styles.suggestionItem, styles.noResults)}
+                      >
+                        Nu au fost găsite rezultate{" "}
+                        <SadFaceIcon styles={{ width: "20px" }} />
+                      </li>
+                    )}
+                  </ul>
+                )}
+                <button
+                  className={styles.searchButton}
+                  onClick={() => {
+                    setSearchOpen(!searchOpen);
+                    setSearchWord("");
+                  }}
+                >
+                  <SearchIcon styles={{ width: "20px" }} />
+                </button>
+              </div>
+              <Button className={styles.desktopAppointmentBtn}>
+                <Link href="/programare">Programează-te</Link>
+              </Button>
+            </div>
           </div>
         </Wrapper>
       </div>

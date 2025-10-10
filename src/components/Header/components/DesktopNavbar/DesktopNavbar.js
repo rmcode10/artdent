@@ -5,85 +5,75 @@ import styles from "./DesktopNavbar.module.scss";
 import { navList } from "../MobileNavbar/MobileNavbar.utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SearchIcon from "@/assets/icons/SearchIcon";
 import { allPages } from "../../Header.utils";
-import SadFaceIcon from "@/assets/icons/SadFaceIcon";
+import ArrowDownIcon from "@/assets/icons/ArrowDownIcon";
 
-const DesktopNavbar = () => {
+const DesktopNavbar = ({ searchOpen }) => {
   const pathname = usePathname();
-  const [searchWord, setSearchWord] = useState("");
-  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const isActiveLink = (item) => {
     return pathname === item.href;
   };
 
-  const searchResults = allPages.filter((page) =>
-    page.label.toLowerCase().includes(searchWord.toLowerCase()),
-  );
-
   return (
     <div className={styles.desktopNavbar}>
-      <ul className={styles.navBarList}>
-        {navList.map((item) => (
-          <li key={item.label} className={styles.navBarItem}>
-            <Link
-              href={item.href}
-              className={cx({ [styles.isActive]: isActiveLink(item) })}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-        <li>
-          <input
-            type="text"
-            name="search"
-            value={searchWord}
-            onChange={(e) => setSearchWord(e.target.value)}
-            className={cx(styles.searchInput, {
-              [styles.active]: isSearchActive,
-            })}
-            placeholder="Caută..."
-            autoComplete="off"
-          />
-          {searchWord.length >= 1 && (
-            <ul className={styles.searchSuggestions}>
-              {searchResults.length > 0 ? (
-                searchResults.map((page) => {
-                  return (
-                    <li key={page.href} className={styles.suggestionItem}>
-                      <Link
-                        href={page.href}
-                        className={styles.suggestionLink}
-                        onClick={() => {
-                          setSearchWord("");
-                          setIsSearchActive(false);
-                        }}
+      <ul className={cx(styles.navBarList, searchOpen && styles.withSearch)}>
+        {navList.map((item) => {
+          if (item.subpages) {
+            return (
+              <li key={item.label} className={styles.navBarItem}>
+                <div
+                  className={styles.dropdownWrapper}
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                  <button>
+                    {item.label}
+                    <span>
+                      <ArrowDownIcon
+                        styles={{ width: "10px", height: "10px" }}
+                      />
+                    </span>
+                  </button>
+
+                  <ul
+                    className={`${styles.submenuList} ${
+                      isDropdownOpen ? styles.open : ""
+                    }`}
+                  >
+                    {item.subpages.map((subpage, index) => (
+                      <li
+                        key={subpage.label}
+                        className={cx(
+                          styles.navBarItem,
+                          styles.submenuItem,
+                          index === 0 && styles.roundedItemTop,
+                          index === item.subpages.length - 1 &&
+                            styles.roundedItemBottom,
+                        )}
                       >
-                        {page.label}
-                      </Link>
-                    </li>
-                  );
-                })
-              ) : (
-                <li className={cx(styles.suggestionItem, styles.noResults)}>
-                  Nu au fost găsite rezultate{" "}
-                  <SadFaceIcon styles={{ width: "20px" }} />
-                </li>
-              )}
-            </ul>
-          )}
-          <button
-            className={styles.searchButton}
-            onClick={() => {
-              setIsSearchActive(!isSearchActive);
-              setSearchWord("");
-            }}
-          >
-            <SearchIcon styles={{ width: "20px" }} />
-          </button>
-        </li>
+                        <Link href={subpage.href}>{subpage.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            );
+          }
+
+          return (
+            <li key={item.label} className={styles.navBarItem}>
+              {console.log(item)}
+              <Link
+                href={item.href}
+                className={cx({ [styles.isActive]: isActiveLink(item) })}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
