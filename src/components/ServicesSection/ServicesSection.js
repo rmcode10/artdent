@@ -1,26 +1,44 @@
-import React from "react";
+"use client";
+import React, { useRef, useState } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import ServiceCard from "./components/ServiceCard";
 import styles from "./scss/ServicesSection.module.scss";
 import SectionTitle from "../Common/SectionTitle/SectionTitle";
 import { services } from "./ServicesSection.utils";
-import Link from "next/link";
 
 const ServicesSection = () => {
-  const servicesToShow = services.slice(0, 6);
-  
+  const [selectedService, setSelectedService] = useState(services[0]);
+
+  const serviceRef = useRef(null);
+
+  const scrollToSection = () => {
+    serviceRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   return (
     <Wrapper>
       <div>
         <SectionTitle title="Serviciile Noastre" />
         <div className={styles.servicesGrid}>
-          {servicesToShow.map((service, index) => (
-            <ServiceCard key={index} service={service} />
-          ))}
+          <div className={styles.servicesList}>
+            {services.map((service) => (
+              <button
+                key={service.title}
+                className={styles.serviceButton}
+                onClick={() => {
+                  setSelectedService(service);
+                  scrollToSection();
+                }}
+              >
+                {service.title}
+              </button>
+            ))}
+          </div>
+          <ServiceCard service={selectedService} ref={serviceRef} />
         </div>
-        <Link href="/servicii" className={styles.button}>
-          Vezi toate serviciile
-        </Link>
       </div>
     </Wrapper>
   );

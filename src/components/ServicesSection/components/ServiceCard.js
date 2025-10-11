@@ -1,11 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./ServiceCard.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
-const ServiceCard = ({ service }) => {
+const ServiceCard = forwardRef(({ service }, ref) => {
   return (
-    <div className={styles.serviceCard}>
+    <div className={styles.serviceCard} ref={ref}>
       <div className={styles.imageContainer}>
         <Image src={service.image} alt={service.title} fill />
       </div>
@@ -19,6 +19,8 @@ const ServiceCard = ({ service }) => {
       </div>
     </div>
   );
-};
+});
+
+ServiceCard.displayName = "ServiceCard";
 
 export default ServiceCard;
