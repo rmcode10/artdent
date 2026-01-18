@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, MapPin, Navigation } from "lucide-react";
-import styles from "./FAQ.module.scss";
+import styles from "./Faq.module.scss";
 import Wrapper from "../Wrapper/Wrapper";
 import { PHONE_NUMBER } from "@/consts/general";
 
