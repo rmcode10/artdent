@@ -1,16 +1,14 @@
+"use client"
 import Wrapper from "@/components/Wrapper/Wrapper";
 import React from "react";
 import styles from "../scss/ServicePage.module.scss";
 import ContactLayout from "@/components/Common/ContactLayout.js/ContactLayout";
-import { services } from "@/components/ServicesSection/ServicesSection.utils";
-import Image from "next/image";
 import Info from "../components/Info";
 import PhoneIcon from "@/assets/icons/PhoneIcon";
-import { PRIMARY_COLOR } from "@/consts/general";
+import { ADDRESS, EMAIL_ADDRESS, GOOGLE_MAPS_URL, PHONE_NUMBER, PRIMARY_COLOR } from "@/consts/general";
 import EmailIcon from "@/assets/icons/EmailIcon";
 import LocationIcon from "@/assets/icons/LocationIcon";
 import FacebookIcon from "@/assets/icons/FacebookIcon";
-import ServicesContainer from "@/components/ServicesPage/components/ServicesContainer";
 
 const ServicePageLayout = ({ children, image }) => {
   const phoneIcon = (
@@ -33,15 +31,21 @@ const ServicePageLayout = ({ children, image }) => {
           <div className={styles.serviceHeader}>
             <div className={styles.serviceImageContainer}>{image}</div>
             <div className={styles.infosContainer}>
-              <Info icon={phoneIcon} text="Telefon: 0712 345 678" />
-              <Info icon={emailIcon} text="Email: contact@artdent.ro" />
+              <Info
+                icon={phoneIcon}
+                text={`Telefon: ${PHONE_NUMBER}`}
+                onClick={() => window.location.href = `tel:${PHONE_NUMBER}`}
+              />
+              <Info icon={emailIcon} text={`Email: ${EMAIL_ADDRESS}`} onClick={() => window.location.href = `mailto:${EMAIL_ADDRESS}`} />
               <Info
                 icon={locationIcon}
-                text="Str Nufarului, Nr 9, Valea Lupului"
+                text={`Adresa: ${ADDRESS}`}
+                onClick={() => window.open(GOOGLE_MAPS_URL, '_blank')}
               />
               <Info
                 icon={facebookIcon}
                 text="Clinica ArtDent - Valea Lupului "
+                onClick={() => window.open("https://www.facebook.com/ClinicaArtDentIasi/", '_blank')}
               />
             </div>
           </div>

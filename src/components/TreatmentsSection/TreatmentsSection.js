@@ -25,7 +25,11 @@ const TreatmentsSection = () => {
 
   return (
     <div>
-      <SectionTitle title="Tratamente" />
+      <div className={styles.header}>
+        <span className={styles.label}>Tratamentele Noastre</span>
+        <h2 className={styles.title}>Before & After</h2>
+        <p className={styles.description}>De la primele semne ale unui zâmbet nesigur, la încrederea unui zâmbet perfect</p>
+      </div>
       <div className={styles.treatmentsSection}>
         <Wrapper>
           <Marquee

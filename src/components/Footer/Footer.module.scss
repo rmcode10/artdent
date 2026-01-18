@@ -1,0 +1,208 @@
+@import '../../scss/variables';
+
+.footer {
+  background-color: $charcoal;
+  color: $sage-100;
+}
+
+.container {
+  @include container;
+  padding-top: $spacing-16;
+  padding-bottom: $spacing-16;
+  margin-top: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-12;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background-color: $primary;
+  @include flex-center;
+
+  span {
+    color: $primary-foreground;
+    font-family: $font-display;
+    font-weight: $font-bold;
+    font-size: $text-lg;
+  }
+}
+
+.logoText {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $font-semibold;
+  color: $sage-50;
+}
+
+.brandDescription {
+  font-size: $text-sm;
+  color: $sage-200;
+  line-height: 1.7;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-full;
+  background-color: rgba($sage-600, 0.2);
+  color: $sage-200;
+  @include flex-center;
+  @include transition;
+
+  &:hover {
+    background-color: $primary;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.column {
+  h4 {
+    font-family: $font-display;
+    font-size: $text-lg;
+    font-weight: $font-semibold;
+    color: $sage-50;
+    margin-bottom: $spacing-6;
+  }
+}
+
+.linksList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+  padding-left: 0;
+
+  a {
+    font-size: $text-sm;
+    color: $sage-200;
+    @include transition(color);
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  span {
+    font-size: $text-sm;
+    color: $sage-200;
+  }
+}
+
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  padding-left:0;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+  color: $primary;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: $primary;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  span, a {
+    font-size: $text-sm;
+    color: $sage-200;
+    line-height: 1.6;
+  }
+
+  a {
+    @include transition(color);
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.bottomBar {
+  border-top: 1px solid rgba($sage-600, 0.2);
+}
+
+.bottomContainer {
+  @include container;
+  padding-top: $spacing-6;
+  padding-bottom: $spacing-6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-4;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.copyright {
+  font-size: $text-sm;
+  color: $sage-300;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: $spacing-6;
+
+  a {
+    font-size: $text-sm;
+    color: $sage-300;
+    @include transition(color);
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.logoContainer {
+    position: relative;
+    width: 300px;
+    height: 100px;
+}

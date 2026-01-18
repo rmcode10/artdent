@@ -4,7 +4,12 @@ import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import styles from "./scss/Header.module.scss";
 import globalClasses from "@/scss/Global.module.scss";
-import { ADDRESS, EMAIL_ADDRESS, PHONE_NUMBER } from "@/consts/general";
+import {
+  ADDRESS,
+  EMAIL_ADDRESS,
+  GOOGLE_MAPS_URL,
+  PHONE_NUMBER,
+} from "@/consts/general";
 import PhoneIcon from "@/assets/icons/PhoneIcon";
 import EmailIcon from "@/assets/icons/EmailIcon";
 import LocationIcon from "@/assets/icons/LocationIcon";
@@ -19,11 +24,15 @@ import Link from "next/link";
 import SearchIcon from "@/assets/icons/SearchIcon";
 import SadFaceIcon from "@/assets/icons/SadFaceIcon";
 import { allPages } from "./Header.utils";
+import { useScrollTo } from "@/hooks/useScrollTo";
 
 const Header = () => {
   const [isMobileNavbarActive, setisMobileNavbarActive] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchWord, setSearchWord] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  const scrollToAppointment = useScrollTo("appointment");
 
   const searchResults = allPages.filter((page) =>
     page.label.toLowerCase().includes(searchWord.toLowerCase()),
@@ -37,6 +46,22 @@ const Header = () => {
     }
   }, [isMobileNavbarActive]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 75) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header className={styles.header}>
       <div className={styles.headerContacts}>
@@ -44,7 +69,7 @@ const Header = () => {
           <div className={cx(styles.headerContactsContent)}>
             <div className={styles.contacts}>
               <p className={styles.contactItem}>
-                <PhoneIcon /> <span>{PHONE_NUMBER}</span>
+                <PhoneIcon /> <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
               </p>
               <p
                 className={cx(
@@ -52,20 +77,47 @@ const Header = () => {
                   globalClasses.desktopOnlyFlex,
                 )}
               >
-                <EmailIcon /> <span>{EMAIL_ADDRESS}</span>
+                <EmailIcon />{" "}
+                <a href={`mailto:${EMAIL_ADDRESS}`}>{EMAIL_ADDRESS}</a>
               </p>
               <p className={cx(styles.contactItem)}>
-                <LocationIcon /> <span>{ADDRESS}</span>
+                <LocationIcon />{" "}
+                <a href={GOOGLE_MAPS_URL} target="_blank">
+                  {ADDRESS}
+                </a>
               </p>
             </div>
             <div className={styles.socials}>
-              <FacebookIcon />
-              <InstagramIcon />
+              <a
+                href="https://www.facebook.com/ClinicaArtDentIasi/"
+                className={styles.socialLink}
+                aria-label="Facebook"
+                target="_blank"
+              >
+                <FacebookIcon />
+              </a>
+              <a
+                href="https://www.instagram.com/explore/locations/192395857280912/artdent-clinic---valea-lupului/"
+                className={styles.socialLink}
+                aria-label="Instagram"
+                target="_blank"
+              >
+                <InstagramIcon />
+              </a>
             </div>
           </div>
         </Wrapper>
       </div>
-      <div className={styles.headerNavbar}>
+      <div
+        className={styles.headerNavbar}
+        style={{
+          background: scrolled ? "white" : "transparent",
+          boxShadow: scrolled ? "-2px 0px 12px rgba(0, 0, 0, 0.15)" : "none",
+          padding: scrolled ? "0 0" : "10px 0",
+          transition:
+            "padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease",
+        }}
+      >
         <Wrapper>
           <div className={styles.headerNavbarContent}>
             <Link className={styles.logo} href="/">
@@ -134,8 +186,11 @@ const Header = () => {
                   <SearchIcon styles={{ width: "20px" }} />
                 </button>
               </div>
-              <Button className={styles.desktopAppointmentBtn}>
-                <Link href="/programare">Programează-te</Link>
+              <Button
+                className={styles.desktopAppointmentBtn}
+                onClick={scrollToAppointment}
+              >
+                Programează-te
               </Button>
             </div>
           </div>

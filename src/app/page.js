@@ -1,21 +1,26 @@
 import WappIcon from "@/assets/icons/WappIcon";
 import ContactSection from "@/components/ContactUs/ContactSection";
-import Homepage from "@/components/Homepage/Homepage";
-import ReviewSection from "@/components/ReviewSection/ReviewSection";
-import ServicesSection from "@/components/ServicesSection/ServicesSection";
 import TreatmentsSection from "@/components/TreatmentsSection/TreatmentsSection";
 import styles from "./scss/Home.module.scss";
+import { ServicesSection2 } from "@/components/ServicesSection/ServicesSection2";
+import { Faq } from "@/components/Faq/Faq";
+import { Reviews } from "@/components/ReviewSection/Reviews";
+import { Hero } from "@/components/Hero/Hero";
+import { TeamPreview } from "@/components/TeamPreview/TeamPreview";
+import { Appointment } from "@/components/ContactUs/Appointment";
 
 export default function Home() {
   return (
     <div>
-      <Homepage />
-      <ServicesSection />
+      <Hero />
+      <ServicesSection2 />
       <TreatmentsSection />
-      <ContactSection />
-      <ReviewSection />
+      <TeamPreview />
+      <Appointment />
+      <Faq />
+      <Reviews />
       <div className={styles.wappIcon}>
-        <a href="https://wa.me/+40711111111">
+        <a href="https://wa.me/+40754066628">
           <WappIcon />
         </a>
       </div>

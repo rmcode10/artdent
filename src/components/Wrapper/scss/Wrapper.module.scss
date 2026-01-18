@@ -3,22 +3,22 @@
 .wrapper {
     width: 100%;
     margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 
     @media (min-width: 600px) {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     @media (min-width: 850px) {
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     @media (min-width: 1000px) {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     @media (min-width: var.$breakpoint-xl) {

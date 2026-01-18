@@ -10,12 +10,14 @@ import EmailIcon from "@/assets/icons/EmailIcon";
 import {
   ADDRESS,
   EMAIL_ADDRESS,
+  GOOGLE_MAPS_URL,
   PHONE_NUMBER,
   PRIMARY_COLOR,
 } from "@/consts/general";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useScrollTo } from "@/hooks/useScrollTo";
 import SearchIcon from "@/assets/icons/SearchIcon";
 import { allPages } from "../../Header.utils";
 import SadFaceIcon from "@/assets/icons/SadFaceIcon";
@@ -23,6 +25,7 @@ import ArrowDownIcon from "@/assets/icons/ArrowDownIcon";
 
 const MobileNavbar = ({ isActive, setIsActive }) => {
   const pathname = usePathname();
+  const scrollToAppointment = useScrollTo("appointment");
   const [searchWord, setSearchWord] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -177,19 +180,24 @@ const MobileNavbar = ({ isActive, setIsActive }) => {
               })}
           </ul>
           <div className={styles.contactInfo}>
-            <Button className={styles.appointmentBtn}>Fa o programare</Button>
+            <Button className={styles.appointmentBtn} onClick={() => {
+              setIsActive(false);
+              scrollToAppointment();
+            }}>Fa o programare</Button>
             <div className={styles.contactItems}>
               <div className={styles.contactItem}>
                 <PhoneIcon color={PRIMARY_COLOR} />
-                <span>{PHONE_NUMBER}</span>
+                <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
               </div>
               <div className={styles.contactItem}>
                 <EmailIcon color={PRIMARY_COLOR} />
-                <span>{EMAIL_ADDRESS}</span>
+                <a href={`mailto:${EMAIL_ADDRESS}`}>{EMAIL_ADDRESS}</a>
               </div>
               <div className={styles.contactItem}>
                 <LocationIcon color={PRIMARY_COLOR} />
-                <span>{ADDRESS}</span>
+                <a href={GOOGLE_MAPS_URL} target="_blank">
+                  {ADDRESS}
+                </a>
               </div>
             </div>
           </div>

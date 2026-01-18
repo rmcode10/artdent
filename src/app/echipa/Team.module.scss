@@ -1,0 +1,156 @@
+@import "../../scss/variables";
+
+.heroSection {
+  padding-bottom: $spacing-16;
+  background-color: $sage-50;
+}
+
+.heroContainer {
+  @include container;
+}
+
+.heroContent {
+  max-width: 768px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-4;
+  @include animate-fade-in;
+}
+
+.heroTitle {
+  font-family: $font-display;
+  font-size: $text-4xl;
+  font-weight: $font-bold;
+  color: $foreground;
+  margin-bottom: $spacing-6;
+  @include animate-fade-in-up;
+
+  @include md {
+    font-size: $text-5xl;
+  }
+
+  @include lg {
+    font-size: $text-6xl;
+  }
+
+  .highlight {
+    color: $primary;
+    font-family: $font-display;
+  font-size: $text-4xl;
+  font-weight: $font-bold;
+  margin-bottom: $spacing-6;
+  @include animate-fade-in-up;
+
+  @include md {
+    font-size: $text-5xl;
+  }
+
+  @include lg {
+    font-size: $text-6xl;
+  }
+  }
+}
+
+.heroDescription {
+  font-size: $text-lg;
+  color: $muted-foreground;
+  @include animate-fade-in-up;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.teamSection {
+  padding: $spacing-24 0;
+  padding-top: 0;
+  background-color: $background;
+}
+
+.teamContainer {
+  @include container;
+}
+
+.teamGrid {
+  display: grid;
+  gap: $spacing-8;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.teamMemberWrapper {
+  @include animate-fade-in;
+  opacity: 0;
+  display: flex;
+}
+
+.ctaSection {
+  padding: $spacing-16 0;
+  background-color: $sage-50;
+}
+
+.ctaContainer {
+  @include container;
+}
+
+.ctaCard {
+  background-color: $card;
+  border-radius: $radius-3xl;
+  padding: $spacing-8;
+  box-shadow: $shadow-md;
+  text-align: center;
+  max-width: 768px;
+  margin: 0 auto;
+
+  @include md {
+    padding: $spacing-12;
+  }
+}
+
+.ctaTitle {
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: $font-bold;
+  color: $foreground;
+  margin-bottom: $spacing-4;
+
+  @include md {
+    font-size: $text-3xl;
+  }
+}
+
+.ctaDescription {
+  color: $muted-foreground;
+  margin-bottom: $spacing-6;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 $spacing-8;
+  background-color: $primary;
+  color: $primary-foreground;
+  font-weight: $font-semibold;
+  border-radius: $radius-xl;
+  @include transition;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+}

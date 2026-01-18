@@ -64,7 +64,6 @@ const DesktopNavbar = ({ searchOpen }) => {
 
           return (
             <li key={item.label} className={styles.navBarItem}>
-              {console.log(item)}
               <Link
                 href={item.href}
                 className={cx({ [styles.isActive]: isActiveLink(item) })}

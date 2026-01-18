@@ -1,0 +1,410 @@
+@use '../../scss/variables' as var;
+@import '../../scss/variables';
+
+
+
+.header {
+  position: sticky;
+  top: -75px;
+  z-index: 99;
+}
+
+.headerContacts {
+  background: var.$primaryColor;
+}
+
+.headerContactsContent,
+.headerNavbarContent {
+  width: 100%;
+  height: 75px;
+  color: var.$white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.headerNavbar {
+  background: var.$white;
+  // box-shadow: -2px 0px 12px rgba(0, 0, 0, 0.15);
+  z-index: 99;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: transparent;
+}
+
+.headerNavbarContent {
+  @media (min-width: "1000px") {
+    height: 100px;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+
+  @media (min-width: var.$breakpoint-md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+.logo {
+  position: relative;
+  width: 220px;
+  height: 100%;
+  @media (min-width: "1000px") {
+    width: 350px;
+  }
+}
+
+.desktopAppointmentBtn {
+  display: none;
+  padding: 15px;
+  white-space: nowrap;
+  a {
+    color: var.$white;
+    text-decoration: none;
+  }
+  @media (min-width: var.$breakpoint-md) {
+    display: block;
+  }
+}
+
+.logoImage.withSearch {
+  @media screen and (max-width: 1150px) {
+    display: none;
+  }
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  .searchButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.searchInput {
+  width: 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #afb084;
+  transition: width 0.2s ease-in-out;
+  padding: 0;
+  background: transparent;
+}
+
+.searchInput.active {
+  width: 150px;
+  padding: 5px;
+  transition: width 0.2s ease-in-out;
+  @media screen and (min-width: 970px) {
+    width: 200px;
+  }
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchSuggestions {
+  position: absolute;
+  width: 55%;
+  top: 30px;
+  list-style: none;
+  background: white;
+  z-index: 99;
+  padding: 0;
+  border: 1px solid var.$primaryColor;
+  border-radius: 5px;
+  li {
+    border-bottom: 1px solid #dddddd;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    &:hover {
+      background: #f5f5f5;
+      cursor: pointer;
+    }
+    .suggestionLink {
+      color: var.$primaryColor;
+      width: 100%;
+      padding: 10px;
+      display: block;
+      text-decoration: none;
+    }
+    &.noResults {
+      text-align: center;
+      padding: 10px;
+      color: var.$primaryColor;
+      border: none;
+      cursor: default;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      &:hover {
+        background: white;
+        cursor: default;
+      }
+      svg {
+        color: var.$primaryColor;
+      }
+    }
+  }
+}
+
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -120px;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba($background, 0.95) 0%,
+    rgba($background, 0.8) 50%,
+    rgba($background, 0.4) 100%
+  );
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  max-width: 640px;
+  margin-top: 70px;
+}
+
+.trustBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  background-color: $sage-100;
+  border-radius: $radius-full;
+  padding: $spacing-2 $spacing-4;
+  margin-bottom: $spacing-6;
+  @include animate-fade-in;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: $primary;
+    fill: $primary;
+  }
+}
+
+.trustText {
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  color: $sage-600;
+}
+
+.headline {
+  font-family: $font-display;
+  font-size: $text-4xl;
+  font-weight: $font-bold;
+  color: $foreground;
+  line-height: 1.1;
+  margin-bottom: $spacing-6;
+  @include animate-fade-in-up;
+
+  @include md {
+    font-size: $text-5xl;
+  }
+
+  @include lg {
+    font-size: $text-6xl;
+  }
+
+  .highlight {
+    font-family: $font-display;
+    color: $primary;
+    font-size: $text-4xl;
+    display: block;
+    @include animate-fade-in-up;
+
+  @include md {
+    font-size: $text-5xl;
+  }
+
+  @include lg {
+    font-size: $text-6xl;
+  }
+  }
+}
+
+.description {
+  font-size: $text-lg;
+  color: $muted-foreground;
+  line-height: 1.7;
+  margin-bottom: $spacing-8;
+  @include animate-fade-in-up;
+  animation-delay: 0.1s;
+  opacity: 0;
+
+  @include md {
+    font-size: $text-xl;
+  }
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  @include animate-fade-in-up;
+  animation-delay: 0.2s;
+  opacity: 0;
+
+  @include sm {
+    flex-direction: row;
+  }
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  height: 56px;
+  padding: 0 $spacing-10;
+  background-color: $primary;
+  color: $primary-foreground;
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  border-radius: $radius-xl;
+  border: none;
+  @include transition;
+  box-shadow: $shadow-primary;
+
+  &:hover {
+    background-color: $primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-elevated;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 $spacing-10;
+  background-color: transparent;
+  color: $primary;
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  border-radius: $radius-xl;
+  border: 2px solid $primary;
+  @include transition;
+
+  &:hover {
+    background-color: $primary;
+    color: $primary-foreground;
+  }
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: $spacing-8;
+  margin-top: $spacing-12;
+  padding-top: $spacing-8;
+  border-top: 1px solid $border;
+  @include animate-fade-in-up;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.stat {
+  p:first-child {
+    font-family: $font-display;
+    font-size: $text-3xl;
+    font-weight: $font-bold;
+    color: $primary;
+  }
+
+  p:last-child {
+    font-size: $text-sm;
+    color: $muted-foreground;
+  }
+}
+
+.statDivider {
+  width: 1px;
+  height: 48px;
+  background-color: $border;
+}
+
+.bottomGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 128px;
+  background: linear-gradient(to top, $background, transparent);
+  z-index: 10;
+}

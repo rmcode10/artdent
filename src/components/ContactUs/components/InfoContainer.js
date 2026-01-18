@@ -26,11 +26,11 @@ const InfoContainer = ({ noLogo }) => {
         <div>
           <div className={styles.contactItem}>
             <PhoneIcon color={PRIMARY_COLOR} />
-            <span>Telefon: {PHONE_NUMBER}</span>
+            <span>Telefon: <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a></span>
           </div>
           <div className={styles.contactItem}>
             <EmailIcon color={PRIMARY_COLOR} />
-            <span>Email: {EMAIL_ADDRESS}</span>
+            <span>Email: <a href={`mailto:${EMAIL_ADDRESS}`}>{EMAIL_ADDRESS}</a></span>
           </div>
         </div>
       </div>

@@ -1,0 +1,313 @@
+@import "../../scss/variables";
+
+.section {
+  padding: $spacing-24 0;
+  padding-top: 0;
+  background-color: $sage-50;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  gap: $spacing-12;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-16;
+  }
+}
+
+.form {
+  background-color: $card;
+  border-radius: $radius-3xl;
+  padding: $spacing-8;
+  box-shadow: $shadow-md;
+
+  @include md {
+    padding: $spacing-10;
+  }
+}
+
+.formLabel {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-4;
+}
+
+.formTitle {
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $foreground;
+  margin-bottom: $spacing-6;
+
+  @include md {
+    font-size: $text-4xl;
+  }
+}
+
+.formDescription {
+  color: $muted-foreground;
+  margin-bottom: $spacing-8;
+  line-height: 1.7;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.fieldRow {
+  display: grid;
+  gap: $spacing-4;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  label {
+    display: block;
+    font-size: $text-sm;
+    font-weight: $font-medium;
+    color: $foreground;
+    margin-bottom: $spacing-2;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 $spacing-4;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  font-size: $text-base;
+  background-color: $background;
+  color: $foreground;
+  @include transition(border-color);
+
+  &::placeholder {
+    color: $muted-foreground;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+}
+
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: $spacing-3 $spacing-4;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  font-size: $text-base;
+  background-color: $background;
+  color: $foreground;
+  resize: vertical;
+  @include transition(border-color);
+
+  &::placeholder {
+    color: $muted-foreground;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+}
+
+.submitButton {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  height: 52px;
+  padding: 0 $spacing-8;
+  background-color: $primary;
+  color: $primary-foreground;
+  font-size: $text-base;
+  font-weight: $font-semibold;
+  border-radius: $radius-xl;
+  border: none;
+  @include transition;
+  box-shadow: $shadow-primary;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-elevated;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.scheduleCard {
+  background-color: $card;
+  border-radius: $radius-3xl;
+  padding: $spacing-8;
+  box-shadow: $shadow-md;
+}
+
+.scheduleHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  margin-bottom: $spacing-6;
+}
+
+.scheduleIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-xl;
+  background-color: $sage-100;
+  @include flex-center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: $primary;
+  }
+}
+
+.scheduleTitle {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $font-semibold;
+  color: $foreground;
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.scheduleItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-3 0;
+  border-bottom: 1px solid $border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.scheduleDay {
+  font-weight: $font-medium;
+  color: $foreground;
+}
+
+.scheduleHours {
+  font-weight: $font-medium;
+  color: $primary;
+
+  &.closed {
+    color: $muted-foreground;
+  }
+}
+
+.contactCard {
+  background-color: $primary;
+  border-radius: $radius-3xl;
+  padding: $spacing-8;
+  color: $primary-foreground;
+}
+
+.contactTitle {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $font-semibold;
+  margin-bottom: $spacing-6;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  color: white;
+  
+  gap: $spacing-4;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.contactIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-xl;
+  background-color: rgba($primary-foreground, 0.2);
+  @include flex-center;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.contactText {
+  line-height: 1.6;
+  color: $primary-foreground ;
+}
+
+.receptionImage {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  display: none;
+
+  @include md {
+    display: block;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.inputError {
+  border: 2px solid #e74c3c;
+  background-color: #fff5f5;
+  border-color: #e74c3c;
+}

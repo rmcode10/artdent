@@ -1,0 +1,53 @@
+@import '../../scss/variables';
+
+.card {
+  background-color: $card;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  @include transition;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+
+    .image img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.image {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include transition(transform);
+  }
+}
+
+.info {
+  padding: $spacing-6;
+  text-align: center;
+}
+
+.name {
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: $font-semibold;
+  color: $foreground;
+  margin-bottom: $spacing-1;
+}
+
+.role {
+  color: $primary;
+  font-weight: $font-medium;
+  margin-bottom: $spacing-1;
+}
+
+.specialization {
+  font-size: $text-sm;
+  color: $muted-foreground;
+}

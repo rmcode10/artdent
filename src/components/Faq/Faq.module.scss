@@ -1,0 +1,217 @@
+@import '../../scss/variables';
+
+.section {
+  padding: $spacing-24 0;
+  padding-top: 0;
+  background-color: $background;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  gap: $spacing-12;
+  align-items: start;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-16;
+  }
+}
+
+.header {
+  @include lg {
+    position: sticky;
+    top: 128px;
+  }
+}
+
+.label {
+  display: inline-block;
+  font-size: $text-sm;
+  font-weight: $font-semibold;
+  color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-4;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-3xl;
+  font-weight: $font-bold;
+  color: $foreground;
+  margin-bottom: $spacing-6;
+
+  @include md {
+    font-size: $text-4xl;
+  }
+
+  @include lg {
+    font-size: $text-5xl;
+  }
+}
+
+.description {
+  font-size: $text-lg;
+  color: $muted-foreground;
+  line-height: 1.7;
+  margin-bottom: $spacing-8;
+}
+
+.contactBox {
+  padding: $spacing-6;
+  background-color: $sage-100;
+  border-radius: $radius-2xl;
+
+  p {
+    font-size: $text-sm;
+    color: $sage-600;
+    margin-bottom: $spacing-2;
+  }
+
+  a {
+    font-family: $font-display;
+    font-size: $text-xl;
+    font-weight: $font-semibold;
+    color: $primary;
+    @include transition(color);
+
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.accordionItem {
+  background-color: $card;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-sm;
+  overflow: visible;
+  @include transition(box-shadow);
+
+  &.open {
+    box-shadow: $shadow-md;
+  }
+}
+
+.accordionTrigger {
+  @include button-reset;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-6;
+  text-align: left;
+  font-family: $font-display;
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  color: $foreground;
+  @include transition(color);
+
+  &:hover {
+    color: $primary;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: $muted-foreground;
+    @include transition(transform);
+    flex-shrink: 0;
+  }
+
+  &.open svg {
+    transform: rotate(180deg);
+  }
+}
+
+.accordionContent {
+  padding: 0 $spacing-6 $spacing-6;
+  color: $muted-foreground;
+  line-height: 1.7;
+  animation: slideDown 0.3s ease;
+
+  p {
+    margin-bottom: $spacing-4;
+  }
+}
+
+.locationButtonWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.locationButton {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  padding: $spacing-3 $spacing-4;
+  background-color: $primary;
+  color: white;
+  border-radius: $radius-lg;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+
+  svg.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.mapOptions {
+  position: absolute;
+  top: calc(100% + $spacing-2);
+  left: 0;
+  background-color: $card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+  z-index: 10;
+  min-width: 160px;
+  animation: slideDown 0.2s ease;
+
+  button {
+    @include button-reset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-3 $spacing-4;
+    font-size: $text-sm;
+    color: $foreground;
+    @include transition(background-color);
+
+    &:hover {
+      background-color: $sage-100;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -29,3 +29,261 @@ $padding-md: 24px; // ≥ 768px
 $padding-lg: 32px; // ≥ 992px
 $padding-xl: 48px; // ≥ 1200px
 $padding-xxl: 64px; // ≥ 1400px
+
+// ============================================
+// Dental Clinic Design System Variables
+// ============================================
+
+// Colors - Primary (Sage Green #afb084)
+$primary: #afb084;
+$primary-light: #e8ebd8;
+$primary-dark: #8a8c5f;
+$primary-foreground: #ffffff;
+
+// Colors - Neutral
+$white: #ffffff;
+$black: #000000;
+$charcoal: #2e2e2e;
+$background: #fafaf8;
+$foreground: #1f1f1f;
+
+// Sage Palette
+$sage-50: #f8f9f5;
+$sage-100: #ebeee0;
+$sage-200: #dce0ca;
+$sage-300: #c5c9a8;
+$sage-400: #afb084;
+$sage-500: #9a9b70;
+$sage-600: #7a7b58;
+
+// Card & Surface
+$card: #ffffff;
+$card-foreground: #1f1f1f;
+
+// Muted
+$muted: #f2f2ed;
+$muted-foreground: #666666;
+
+// Border
+$border: #e0e0dc;
+
+// Accent
+$accent: #e8ebd8;
+$accent-foreground: #4a4a35;
+
+// Destructive
+$destructive: #ef4444;
+$destructive-foreground: #ffffff;
+
+// Typography
+$font-display: 'Playfair Display', serif;
+$font-body: 'Inter', sans-serif;
+
+// Font Sizes
+$text-xs: 0.75rem;
+$text-sm: 0.875rem;
+$text-base: 1rem;
+$text-lg: 1.125rem;
+$text-xl: 1.25rem;
+$text-2xl: 1.5rem;
+$text-3xl: 1.875rem;
+$text-4xl: 2.25rem;
+$text-5xl: 3rem;
+$text-6xl: 3.75rem;
+
+// Font Weights
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Spacing
+$spacing-0: 0;
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+$spacing-10: 2.5rem;
+$spacing-12: 3rem;
+$spacing-16: 4rem;
+$spacing-20: 5rem;
+$spacing-24: 6rem;
+$spacing-32: 8rem;
+
+// Border Radius
+$radius-sm: 0.375rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+$radius-2xl: 1.25rem;
+$radius-3xl: 1.5rem;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+$shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+$shadow-primary: 0 8px 24px rgba(175, 176, 132, 0.25);
+$shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.12);
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Container
+$container-padding: 1.5rem;
+$container-max-width: 1280px;
+
+// Z-Index
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
+
+// Mixins
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin font-display {
+  font-family: $font-display;
+}
+
+@mixin font-body {
+  font-family: $font-body;
+}
+
+@mixin transition($property: all) {
+  transition: $property $transition-base;
+}
+
+@mixin hover-lift {
+  transition: transform $transition-base, box-shadow $transition-base;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin button-reset {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// Responsive Mixins
+@mixin sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@mixin animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+@mixin animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}

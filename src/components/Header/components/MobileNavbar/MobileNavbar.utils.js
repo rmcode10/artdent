@@ -22,8 +22,12 @@ export const navList = [
     ],
   },
   {
-    label: "Before & After",
-    href: "/before-after",
+    label: "Despre Noi",
+    href: "/despre-noi",
+  },
+  {
+    label: "Echipa Noastră",
+    href: "/echipa",
   },
   {
     label: "Tarife",
