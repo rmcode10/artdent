@@ -13,8 +13,8 @@ const teamMembers = [
   {
     name: "Dr. Alfred Pițurlea",
     role: "Medic Stomatolog",
-    specialization: "Competenta Implantologie",
-    description: "Master in Protezare implanto-proteticǎ",
+    specialization: "Competență Implantologie",
+    description: "Master în Protezare implanto-protetică",
     image: alfredPiturlea,
   },
   {
@@ -26,7 +26,7 @@ const teamMembers = [
   {
     name: "Georgiana Patrolea",
     role: "Medic Stomatolog",
-    specialization: "Specialist Ortodonție si Ortopedie Dento-Facială",
+    specialization: "Specialist Ortodonție și Ortopedie Dento-Facială",
     image: georgianaPatrolea,
   },
   {

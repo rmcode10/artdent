@@ -9,7 +9,7 @@ const ContactSection = () => {
   return (
     <Wrapper>
       <div>
-        <SectionTitle title="Hai sa ne cunoastem" />
+        <SectionTitle title="Hai să ne cunoaștem" />
         <div className={styles.contactContainer}>
           <InfoContainer />
           <ContactForm />

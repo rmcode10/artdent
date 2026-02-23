@@ -90,7 +90,7 @@ export const Appointment = () => {
         });
 
         setSuccessMessage(
-          "Multumim pentru programare! Un coleg te va contacta curând.",
+          "Mulțumim pentru programare! Un coleg te va contacta curând.",
         );
 
         setTimeout(() => {
@@ -255,9 +255,9 @@ export const Appointment = () => {
                       target="_blank"
                       className={styles.contactText}
                     >
-                      Str. Nufarului 9
+                      Str. Nufărului 9
                       <br />
-                      Valea Lupului, Iasi, România
+                      Valea Lupului, Iași, România
                     </a>
                   </div>
                 </div>

@@ -33,7 +33,7 @@ export const services = [
     href: "/servicii/pedodontie",
   },
   {
-    title: "Estetica dentara",
+    title: "Estetică dentară",
     description: "Estetică dentară – Zâmbetul perfect, la îndemâna ta!",
     longDescription:
       "Estetica dentară îmbină arta și știința pentru a oferi zâmbetul dorit. În clinica noastră, transformăm zâmbetele prin servicii precum albirea dentară, fațetele dentare, bonding-ul estetic și reconturarea gingivală.",
@@ -41,7 +41,7 @@ export const services = [
     href: "/servicii/estetica",
   },
   {
-    title: "Protetica",
+    title: "Protetică",
     description:
       "Protetica dentară – Restaurarea funcționalității și esteticii zâmbetului",
     longDescription:
@@ -50,7 +50,7 @@ export const services = [
     href: "/servicii/protetica",
   },
   {
-    title: "Chirurgie orala",
+    title: "Chirurgie orală",
     description:
       "Chirurgie orală – Soluții avansate pentru sănătatea zâmbetului tău",
     longDescription:
@@ -68,9 +68,9 @@ export const services = [
     href: "/servicii/implantologie",
   },
   {
-    title: "Reabilitare implanto-protetica All-on 4/6 by Straumann",
+    title: "Reabilitare implanto-protetică All-on 4/6 by Straumann",
     description:
-      "Reabilitare implanto-protetica All-on 4/6 by Straumann – Zâmbet complet cu soluții inovatoare",
+      "Reabilitare implanto-protetică All-on 4/6 by Straumann – Zâmbet complet cu soluții inovatoare",
     longDescription:
       "Sistemul All-on-4/6 by Straumann este o soluție revoluționară pentru pacienții edentați total sau parțial, care doresc să-și recapete zâmbetul și funcționalitatea dentară într-un timp scurt. Această tehnică avansată permite fixarea unei lucrări protetice complete pe doar 4 sau 6 implanturi dentare, utilizând tehnologia de top Straumann pentru rezultate sigure, estetice și de lungă durată.",
     image: "/images/services/reabilitare.jpg",

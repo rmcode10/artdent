@@ -11,9 +11,9 @@ const Homepage = () => {
           <div className={styles.textContainer}>
             <div>
               <h1>
-                Noi avem <span>grija</span>
+                Noi avem <span>grijă</span>
               </h1>
-              <h2>de zambetul tau</h2>
+              <h2>de zâmbetul tău</h2>
             </div>
             <p>
               ArtDent oferă o gamă completă de servicii dentare atât pentru

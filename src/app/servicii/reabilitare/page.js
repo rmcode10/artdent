@@ -10,7 +10,7 @@ const Reabilitare = () => {
   const otherServices = services.filter(
     (service) =>
       service.title !==
-      "Reabilitare implanto-protetica All-on 4/6 by Straumann",
+      "Reabilitare implanto-protetică All-on 4/6 by Straumann",
   );
 
   return (

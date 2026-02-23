@@ -8,11 +8,11 @@ import ServicePageLayout from "../components/ServicePageLayout";
 const Estetica = () => {
   const img = services[4].image;
   const otherServices = services.filter(
-    (service) => service.title !== "Estetica dentara",
+    (service) => service.title !== "Estetică dentară",
   );
 
   return (
-    <ServicePageLayout image={<Image fill src={img} alt="Estetica dentara" />}>
+    <ServicePageLayout image={<Image fill src={img} alt="Estetică dentară" />}>
       <h1>Estetică dentară – Zâmbetul perfect, la îndemâna ta!</h1>
       <p>
         Estetica dentară îmbină arta și știința pentru a oferi zâmbetul dorit.

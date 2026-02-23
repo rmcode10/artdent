@@ -10,7 +10,7 @@ export const reviews = [
     id: 2,
     name: "Nanu C.",
     rating: 5,
-    text: "Am avut o experiență excelentă la ArtDent. Personalul este foarte profesionist, iar atmosfera clinicii este una prietenoasă și relaxantă. Am fost tratata cu multă grijă și atenție, iar rezultatele au fost exact ce mi-am dorit. Recomand cu încredere această clinică tuturor celor care au nevoie de servicii stomatologice de calitate. Mulțumesc domnului doctor Pițurlea si întregii echipe pentru profesionalismul lor.",
+    text: "Am avut o experiență excelentă la ArtDent. Personalul este foarte profesionist, iar atmosfera clinicii este una prietenoasă și relaxantă. Am fost tratată cu multă grijă și atenție, iar rezultatele au fost exact ce mi-am dorit. Recomand cu încredere această clinică tuturor celor care au nevoie de servicii stomatologice de calitate. Mulțumesc domnului doctor Pițurlea și întregii echipe pentru profesionalismul lor.",
     date: "acum 1 lună",
   },
   {
@@ -24,14 +24,14 @@ export const reviews = [
     id: 4,
     name: "Renato C.",
     rating: 5,
-    text: "Am ales ArtDent datorită locației, a recenziilor pozitive și a prezenței online bine puse la punct. Echipa medicală este tânără, foarte amabilă și profesionistă. Cabinetul dispune de locuri de parcare, este curat, modern, atmosfera plăcută, cu muzică ambientală și respect pentru programări, inclusiv reminder periodic prin SMS. Comunicarea a fost foarte bună, am avut parte de răbdare și seriozitate primind răspunsuri chiar și la întrebările care poate sunt banale pentru un specialist. Mi-au fost explicate clar opțiunile de tratament, adaptând planul și costurile în funcție de buget, totul foarte transparent, cu deviz. Tratamentul de care am beneficiat, deși complex, a decurs rapid, fără dureri, cu atenție la detalii și folosind echipamente moderne, iar igiena este impecabilă. Prețurile sunt foarte ok raportat la calitatea serviciilor. Recomand cu încredere acestă clinică stomatologică atât pentru tratamente complexe cât și pentru o simplă igienizare. Mulțumesc!",
+    text: "Am ales ArtDent datorită locației, a recenziilor pozitive și a prezenței online bine puse la punct. Echipa medicală este tânără, foarte amabilă și profesionistă. Cabinetul dispune de locuri de parcare, este curat, modern, atmosfera plăcută, cu muzică ambientală și respect pentru programări, inclusiv reminder periodic prin SMS. Comunicarea a fost foarte bună, am avut parte de răbdare și seriozitate primind răspunsuri chiar și la întrebările care poate sunt banale pentru un specialist. Mi-au fost explicate clar opțiunile de tratament, adaptând planul și costurile în funcție de buget, totul foarte transparent, cu deviz. Tratamentul de care am beneficiat, deși complex, a decurs rapid, fără dureri, cu atenție la detalii și folosind echipamente moderne, iar igiena este impecabilă. Prețurile sunt foarte ok raportat la calitatea serviciilor. Recomand cu încredere această clinică stomatologică atât pentru tratamente complexe cât și pentru o simplă igienizare. Mulțumesc!",
     date: "acum 2 luni",
   },
   {
     id: 5,
     name: "Mihaela R.",
     rating: 5,
-    text: "Cabinet modern și echipat cu tehnologii de ultimă generație. Interacțiune cu medicii și personalul foarte buna. Recomandat.",
+    text: "Cabinet modern și echipat cu tehnologii de ultimă generație. Interacțiune cu medicii și personalul foarte bună. Recomandat.",
     date: "acum 2 luni",
   },
   {

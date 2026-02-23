@@ -8,11 +8,11 @@ import ServicePageLayout from "../components/ServicePageLayout";
 const Chirurgie = () => {
   const img = services[6].image;
   const otherServices = services.filter(
-    (service) => service.title !== "Chirurgie orala",
+    (service) => service.title !== "Chirurgie orală",
   );
 
   return (
-    <ServicePageLayout image={<Image fill src={img} alt="Chirurgie orala" />}>
+    <ServicePageLayout image={<Image fill src={img} alt="Chirurgie orală" />}>
       <h1>
         Chirurgie orală – Soluții avansate pentru sănătatea zâmbetului tău
       </h1>

@@ -87,7 +87,7 @@ const ContactForm = () => {
         });
 
         setSuccessMessage(
-          "Multumim pentru programare! Un coleg te va contacta curând.",
+          "Mulțumim pentru programare! Un coleg te va contacta curând.",
         );
 
         setTimeout(() => {
@@ -130,7 +130,7 @@ const ContactForm = () => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="telefon">Numar de telefon</label>
+        <label htmlFor="telefon">Număr de telefon</label>
         <input
           type="text"
           id="telefon"
@@ -141,7 +141,7 @@ const ContactForm = () => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="mesaj">Mesaj (optional)</label>
+        <label htmlFor="mesaj">Mesaj (opțional)</label>
         <textarea
           id="mesaj"
           name="mesaj"

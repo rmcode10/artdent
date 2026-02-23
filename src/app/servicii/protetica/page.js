@@ -8,11 +8,11 @@ import ServicePageLayout from "../components/ServicePageLayout";
 const Protetica = () => {
   const img = services[5].image;
   const otherServices = services.filter(
-    (service) => service.title !== "Protetica",
+    (service) => service.title !== "Protetică",
   );
 
   return (
-    <ServicePageLayout image={<Image fill src={img} alt="Protetica" />}>
+    <ServicePageLayout image={<Image fill src={img} alt="Protetică" />}>
       <h1>
         Protetica dentară – Restaurarea funcționalității și esteticii zâmbetului
       </h1>

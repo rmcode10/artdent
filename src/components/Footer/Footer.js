@@ -15,7 +15,7 @@ import Image from "next/image";
 import { EMAIL_ADDRESS, GOOGLE_MAPS_URL, PHONE_NUMBER } from "@/consts/general";
 
 const quickLinks = [
-  { label: "Acasa", href: "/" },
+  { label: "Acasă", href: "/" },
   { label: "Despre Noi", href: "/despre-noi" },
   { label: "Echipa Noastră", href: "/echipa" },
   { label: "Servicii", href: "/#services" },
@@ -31,7 +31,7 @@ const services = [
   "Protetică",
   "Chirurgie Orală",
   "Implantologie",
-  "Reabilitare implanto-protetica All-on 4/6 by Straumann",
+  "Reabilitare implanto-protetică All-on 4/6 by Straumann",
 ];
 
 export const Footer = () => {
@@ -114,7 +114,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Str. Nufarului, Nr. 9
+                  Str. Nufărului, Nr. 9
                   <br />
                   Valea Lupului, Iași, România
                 </a>

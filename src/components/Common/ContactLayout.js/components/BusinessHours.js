@@ -4,14 +4,14 @@ import styles from "../ContactLayout.module.scss"
 const BusinessHours = () => {
   return (
     <div className={styles.businessHoursContainer}>
-      <h4>Program Clinica</h4>
+      <h4>Program Clinică</h4>
       <ul>
         <li>
           <span>Luni</span>
           <span className={styles.time}>08:00 - 20:00</span>
         </li>
         <li>
-          <span>Marti</span>
+          <span>Marți</span>
           <span className={styles.time}>08:00 - 20:00</span>
         </li>
         <li>
@@ -27,11 +27,11 @@ const BusinessHours = () => {
           <span className={styles.time}>08:00 - 20:00</span>
         </li>
         <li>
-          <span>Sambata</span>
+          <span>Sâmbătă</span>
           <span className={styles.time}>08:00 - 20:00</span>
         </li>
         <li>
-          <span>Duminica</span>
+          <span>Duminică</span>
           <span className={styles.time}>08:00 - 20:00</span>
         </li>
       </ul>

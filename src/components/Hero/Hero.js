@@ -23,8 +23,8 @@ export const Hero = () => {
         <div className={styles.content}>
           {/* Headline */}
           <h1 className={styles.headline}>
-            Zambetul tau,{" "}
-            <span className={styles.highlight}>Pasiunea Noastra</span>
+            Zâmbetul tău,{" "}
+            <span className={styles.highlight}>Pasiunea Noastră</span>
           </h1>
 
           {/* Description */}

@@ -1,6 +1,6 @@
 export const navList = [
   {
-    label: "Acasa",
+    label: "Acasă",
     href: "/",
   },
   {
@@ -11,12 +11,12 @@ export const navList = [
       { label: "Endodontie", href: "/servicii/endodontie" },
       { label: "Ortodontie", href: "/servicii/ortodontie" },
       { label: "Pedodontie", href: "/servicii/pedodontie" },
-      { label: "Estetica Dentara", href: "/servicii/estetica" },
-      { label: "Protetica", href: "/servicii/protetica" },
-      { label: "Chirurgie Orala", href: "/servicii/chirurgie" },
+      { label: "Estetică Dentară", href: "/servicii/estetica" },
+      { label: "Protetică", href: "/servicii/protetica" },
+      { label: "Chirurgie Orală", href: "/servicii/chirurgie" },
       { label: "Implantologie", href: "/servicii/implantologie" },
       {
-        label: "Reabilitare implanto-protetica All-on 4/6 by Straumann",
+        label: "Reabilitare implanto-protetică All-on 4/6 by Straumann",
         href: "/servicii/reabilitare",
       },
     ],

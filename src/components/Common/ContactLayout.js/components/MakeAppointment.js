@@ -13,7 +13,7 @@ const MakeAppointment = () => {
       <AppointmentIcon />
       <h4>Vrei o programare?</h4>
       <p>Te vom contacta imediat</p>
-      <Button onClick={scrollToAppointment}>Fa o programare</Button>
+      <Button onClick={scrollToAppointment}>Fă o programare</Button>
     </div>
   );
 };

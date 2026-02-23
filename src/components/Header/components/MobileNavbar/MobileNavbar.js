@@ -183,7 +183,7 @@ const MobileNavbar = ({ isActive, setIsActive }) => {
             <Button className={styles.appointmentBtn} onClick={() => {
               setIsActive(false);
               scrollToAppointment();
-            }}>Fa o programare</Button>
+            }}>Fă o programare</Button>
             <div className={styles.contactItems}>
               <div className={styles.contactItem}>
                 <PhoneIcon color={PRIMARY_COLOR} />

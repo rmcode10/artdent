@@ -11,7 +11,7 @@ import { reviews } from "./ReviewSection.utils";
 const ReviewSection = () => {
   return (
     <>
-      <SectionTitle title="Parerile Pacientilor" />
+      <SectionTitle title="Părerile Pacienților" />
       <div className={styles.reviewsContainer}>
         <Wrapper>
           <div className={styles.reviewCardsContainer}>
