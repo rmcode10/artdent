@@ -1,33 +1,15 @@
 "use client";
-import { useRef, useState } from "react";
-import {
-  Shield,
-  FileHeart,
-  Smile,
-  Baby,
-  Sparkles,
-  Crown,
-  Scissors,
-  Wrench,
-  Settings,
-} from "lucide-react";
+
+import { useState } from "react";
+import { ChevronDown, MapPin, Navigation } from "lucide-react";
 import styles from "./scss/ServicesSection2.module.scss";
-import Link from "next/link";
 import Wrapper from "../Wrapper/Wrapper";
-import { useScrollTo } from "@/hooks/useScrollTo";
-import Ortodontie from "@/assets/icons/Ortodontie";
-import Endodontie from "@/assets/icons/Endodontie";
-import Chirurgie from "@/assets/icons/Chirurgie";
-import Pedodontie from "@/assets/icons/Pedodontie";
-import Protetica from "@/assets/icons/Protetica";
-import Implantologie from "@/assets/icons/Implantologie";
-import Generala from "@/assets/icons/Generala";
-import Parodontologie from "@/assets/icons/Parodontologie";
+import { PHONE_NUMBER } from "@/consts/general";
+import Link from "next/link";
 
 const services = [
   {
     id: "profilaxie",
-    icon: Generala,
     title: "Profilaxie",
     description:
       "Profilaxia dentară reprezintă fundația sănătății orale și include o serie de proceduri menite să prevină apariția cariilor, a bolilor gingivale și a altor probleme dentare. În cadrul clinicii noastre stomatologice, ne dedicăm să vă oferim cele mai moderne tehnici de prevenție și îngrijire.",
@@ -35,7 +17,6 @@ const services = [
   },
   {
     id: "endodontie",
-    icon: Endodontie,
     title: "Endodonție",
     description:
       "Endodonția, cunoscută și sub denumirea de tratament de canal, este o procedură stomatologică esențială pentru salvarea dinților grav afectați de carii profunde sau infecții ale pulpei dentare. Această intervenție presupune curățarea și sigilarea canalelor radiculare pentru a preveni extinderea infecției și a proteja dintelui natural.",
@@ -43,7 +24,6 @@ const services = [
   },
   {
     id: "ortodontie",
-    icon: Ortodontie,
     title: "Ortodonție",
     description:
       "Ortodonția este ramura stomatologiei care se ocupă de diagnosticarea, prevenirea și corectarea poziției dinților și a maxilarelor. Un zâmbet aliniat corect nu este doar estetic, ci și esențial pentru sănătatea orală și funcționalitatea ocluziei.",
@@ -51,7 +31,6 @@ const services = [
   },
   {
     id: "pedodontie",
-    icon: Pedodontie,
     title: "Pedodonție",
     description:
       "Pedodonția se concentrează pe sănătatea orală a copiilor, de la primii dinți până la adolescență. În clinica noastră, oferim servicii precum controale periodice, sigilări dentare, fluorizare și tratamentul cariilor, toate adaptate nevoilor copiilor.",
@@ -59,7 +38,6 @@ const services = [
   },
   {
     id: "estetica",
-    icon: Sparkles,
     title: "Estetică Dentară",
     description:
       "Estetica dentară îmbină arta și știința pentru a oferi zâmbetul dorit. În clinica noastră, transformăm zâmbetele prin servicii precum albirea dentară, fațetele dentare, bonding-ul estetic și reconturarea gingivală.",
@@ -68,7 +46,6 @@ const services = [
   },
   {
     id: "protetica",
-    icon: Protetica,
     title: "Protetică",
     description:
       "Protetica dentară se concentrează pe refacerea dinților pierduți sau deteriorați, redând atât funcționalitatea, cât și aspectul natural al zâmbetului. În clinica noastră, oferim soluții personalizate, precum coroane, punți dentare, proteze mobile și lucrări pe implanturi, utilizând materiale de înaltă calitate și tehnologie avansată.",
@@ -77,7 +54,6 @@ const services = [
   },
   {
     id: "chirurgie",
-    icon: Chirurgie,
     title: "Chirurgie Orală",
     description:
       "Chirurgia orală include intervenții specializate pentru rezolvarea problemelor dentare complexe, precum extracțiile molarilor de minte, tratamentul chisturilor maxilare, inserarea implanturilor dentare și corectarea anomaliilor orale.",
@@ -86,7 +62,6 @@ const services = [
   },
   {
     id: "implantologie",
-    icon: Implantologie,
     title: "Implantologie",
     description:
       "Implantologia orală oferă soluții moderne și eficiente pentru înlocuirea dinților pierduți, iar sistemul Straumann (Elveția) reprezintă standardul de excelență în acest domeniu. Renumit pentru calitatea superioară, precizia și durabilitatea sa, Straumann este lider mondial în implantologie, oferind rezultate sigure și de lungă durată.",
@@ -95,92 +70,72 @@ const services = [
   },
   {
     id: "reabilitare",
-    icon: Settings,
     title: "Reabilitare Implanto-Protetică",
     description:
       "Sistemul All-on-4/6 by Straumann este o soluție revoluționară pentru pacienții edentați total sau parțial, care doresc să-și recapete zâmbetul și funcționalitatea dentară într-un timp scurt. Această tehnică avansată permite fixarea unei lucrări protetice complete pe doar 4 sau 6 implanturi dentare, utilizând tehnologia de top Straumann pentru rezultate sigure, estetice și de lungă durată.",
 
     href: "/servicii/reabilitare",
   },
-  {
-    id: "parodontologie",
-    icon: Parodontologie,
-    title: "Parodontologie",
-    description:
-      "Parodontologia este specialitatea stomatologică dedicată sănătății gingiilor și a țesuturilor care susțin dinții. Această ramură a medicinei dentare oferă soluții pentru prevenirea și tratarea problemelor precum sângerările gingivale, inflamațiile sau retracțiile gingivale, care pot afecta atât estetica zâmbetului, cât și stabilitatea dinților.",
-    href: "/servicii/parodontologie",
-  },
 ];
 
-export const ServicesSection2 = () => {
-  const [activeService, setActiveService] = useState(services[0]);
-  const scrollToServiceDetails = useScrollTo("serviceDetails");
+export const ServicesSection3 = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+  const [showMapOptions, setShowMapOptions] = useState(false);
+
+  const toggleItem = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <Wrapper>
-      <section id="services" className={styles.section}>
+      <section id="faq" className={styles.section}>
         <div className={styles.container}>
-          {/* Section Header */}
-          <div className={styles.header}>
-            <span className={styles.label}>Serviciile Noastre</span>
-            <h2 className={styles.title}>Servicii Stomatologice</h2>
-            <p className={styles.subtitle}>
-              Îngrijire stomatologică completă adaptată nevoilor tale. De la
-              prevenție la tratamente avansate, suntem aici pentru sănătatea ta
-              orală.
-            </p>
-          </div>
-
-          {/* Services Grid */}
           <div className={styles.grid}>
-            {/* Service Buttons */}
-            <div className={styles.servicesGrid}>
-              {services.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <button
-                    key={service.id}
-                    onClick={() => {
-                      setActiveService(service);
-                      if (window.innerWidth < 1024) {
-                        scrollToServiceDetails();
-                      }
-                    }}
-                    className={`${styles.serviceButton} ${
-                      activeService.id === service.id ? styles.active : ""
-                    }`}
-                  >
-                    <Icon
-                      color={
-                        activeService.id === service.id ? "#ffffff" : "#afb084"
-                      }
-                    />
-                    <h3 className={styles.serviceTitle}>{service.title}</h3>
-                  </button>
-                );
-              })}
+            {/* Header */}
+            <div className={styles.header}>
+              <span className={styles.label}>Servicii Stomatologice</span>
+              <h2 className={styles.title}>Serviciile Noastre</h2>
+              <p className={styles.description}>
+                Îngrijire stomatologică completă adaptată nevoilor tale. De la
+                prevenție la tratamente avansate, suntem aici pentru sănătatea
+                ta orală.
+              </p>
+              {/* <div className={styles.contactBox}>
+                <p>Aveți alte întrebări?</p>
+                <a href={`tel:${PHONE_NUMBER}`}>Sunați-ne: {PHONE_NUMBER}</a>
+              </div> */}
             </div>
 
-            {/* Service Details */}
-            <div
-              className={styles.details}
-              key={activeService.id}
-              id="serviceDetails"
-            >
-              <div className={styles.detailsHeader}>
-                <div className={styles.detailsIconWrapper}>
-                  <activeService.icon color={"#afb084"} />
+            {/* Accordion */}
+            <div className={styles.accordion}>
+              {services.map((item, index) => (
+                <div
+                  key={index}
+                  className={`${styles.accordionItem} ${
+                    openIndex === index ? styles.open : ""
+                  }`}
+                >
+                  <button
+                    className={`${styles.accordionTrigger} ${
+                      openIndex === index ? styles.open : ""
+                    }`}
+                    onClick={() => toggleItem(index)}
+                  >
+                    {item.title}
+                    <ChevronDown />
+                  </button>
+                  {openIndex === index && (
+                    <div className={styles.accordionContent}>
+                      <p>{item.description}</p>
+                      {item.href && (
+                        <div className={styles.locationButtonWrapper}>
+                          <Link href={item.href} className={styles.ctaSecondary}>Vezi Detalii</Link>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
-                <h3 className={styles.detailsTitle}>{activeService.title}</h3>
-              </div>
-
-              <p className={styles.detailsDescription}>
-                {activeService.description}
-              </p>
-
-              <Link href={activeService.href} className={styles.serviceLink}>
-                Vezi detalii
-              </Link>
+              ))}
             </div>
           </div>
         </div>

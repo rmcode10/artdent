@@ -10,9 +10,9 @@ import Wrapper from "../Wrapper/Wrapper";
 import { EMAIL_ADDRESS, GOOGLE_MAPS_URL, PHONE_NUMBER } from "@/consts/general";
 
 const scheduleData = [
-  { day: "Luni - Vineri", hours: "8:00 - 18:00" },
-  { day: "Sâmbătă", hours: "9:00 - 15:00" },
-  { day: "Duminică", hours: "Închis" },
+  { day: "Luni - Joi", hours: "9:00 - 20:00" },
+  { day: "Vineri", hours: "9:00 - 13:00" },
+  { day: "Sâmbătă - Duminică", hours: "Închis" },
 ];
 
 export const Appointment = () => {

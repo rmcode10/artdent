@@ -47,7 +47,7 @@ export const Hero = () => {
           {/* Stats */}
           <div className={styles.stats}>
             <div className={styles.stat}>
-              <p>3+</p>
+              <p>6+</p>
               <p>Ani Experiență</p>
             </div>
             <div className={styles.statDivider} />

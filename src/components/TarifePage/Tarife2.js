@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import styles from "./Tarife2.module.scss";
 import Wrapper from "../Wrapper/Wrapper";
 import { useServices } from "./hooks/useServices";
-import isEqual from "lodash.isequal";
 
 const pricesData = [
   {
@@ -370,6 +369,302 @@ const pricesData = [
       { id: 197, name: "Splint articular", price: "1350" },
     ],
   },
+  {
+    id: 10,
+    name: "Parodontologie",
+    services: [
+      { id: 198, name: "Consultație", price: "150" },
+      { id: 199, name: "Evaluare parodontală", price: "200" },
+      { id: 200, name: "Protocol de igienizare personalizată", price: "50" },
+      { id: 201, name: "Igienizare parodontală", price: "350" },
+      { id: 202, name: "Perisolv", price: "150" },
+      { id: 203, name: "Laser", price: "250" },
+      { id: 204, name: "Reevaluare parodontală", price: "150" },
+      { id: 205, name: "Surfasaj în câmp deschis", price: "300" },
+      { id: 206, name: "Chirurgie rezectivă", price: "350" },
+      { id: 207, name: "Chirurgie regenerativă", price: "700" },
+      { id: 208, name: "Recoltare grefă", price: "800" },
+      {
+        id: 209,
+        name: "Augmentare gingie keratinizată cu grefă gingivală",
+        price: "1000",
+      },
+      { id: 210, name: "GBT", price: "250" },
+    ],
+  },
+  {
+    id: 11,
+    name: "Tarife CAS",
+    type: "cas",
+    tables: [
+      {
+        id: 1,
+        title: "CAS Asigurați peste 18 ani",
+        services: [
+          { id: 1, name: "Consultație", price: "149", coplata: "" },
+          {
+            id: 2,
+            name: "Tratamentul cariei simple CAS",
+            price: "157",
+            coplata: "",
+          },
+          {
+            id: 3,
+            name: "Obturația dintelui după tratamentul afecțiunilor pulpare sau al gangrenei",
+            price: "207",
+            coplata: "83",
+          },
+          {
+            id: 4,
+            name: "Tratamentul de urgență al traumatismelor dento-alveolare/dinte",
+            price: "196",
+            coplata: "",
+          },
+          {
+            id: 5,
+            name: "Tratamentul afecțiunilor pulpare CAS",
+            price: "269",
+            coplata: "108",
+          },
+          { id: 6, name: "Pansament calmant CAS", price: "78", coplata: "" },
+          {
+            id: 7,
+            name: "Tratamentul gangrenei pulpare CAS",
+            price: "314",
+            coplata: "126",
+          },
+          {
+            id: 8,
+            name: "Tratamentul parodontitelor apicale - prin incizie - cu anestezic",
+            price: "190",
+            coplata: "",
+          },
+          {
+            id: 9,
+            name: "Tratamentul afecțiunilor paradontiului cu anestezie",
+            price: "131",
+            coplata: "",
+          },
+          {
+            id: 10,
+            name: "Tratamentul afecțiunilor mucoasei bucale",
+            price: "76",
+            coplata: "30",
+          },
+          {
+            id: 11,
+            name: "Extracția dinților temporari cu anestezie",
+            price: "76",
+            coplata: "30",
+          },
+          {
+            id: 12,
+            name: "Extracție dinți permanenți cu anestezie CAS",
+            price: "162",
+            coplata: "65",
+          },
+          {
+            id: 13,
+            name: "Chiuretaj alveolar și tratamentul hemoragiei",
+            price: "112",
+            coplata: "",
+          },
+          {
+            id: 14,
+            name: "Proteză mobilă acrilică CAS (1/4 ani)",
+            price: "1145",
+            coplata: "",
+          },
+          {
+            id: 15,
+            name: "Reparație proteză mobilă acrilică CAS (2/an)",
+            price: "138",
+            coplata: "",
+          },
+          {
+            id: 16,
+            name: "Rebazare proteză CAS (2/an)",
+            price: "202",
+            coplata: "",
+          },
+          { id: 17, name: "Element fizionomic", price: "224", coplata: "90" },
+          {
+            id: 18,
+            name: "Element semi-fizionomic",
+            price: "258",
+            coplata: "103",
+          },
+          {
+            id: 19,
+            name: "Reconstituire corono-radiculară",
+            price: "263",
+            coplata: "105",
+          },
+          {
+            id: 20,
+            name: "Detartraj cu ultrasunete și periaj profesional/ambele arcade/1 serviciu pe an",
+            price: "150",
+            coplata: "",
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: "CAS Copii sub 18 ani",
+        services: [
+          {
+            id: 1,
+            name: "Consultație + igienizare CAS (1/an)",
+            price: "149",
+            coplata: "",
+          },
+          {
+            id: 2,
+            name: "Tratamentul cariei simple CAS",
+            price: "157",
+            coplata: "",
+          },
+          {
+            id: 3,
+            name: "Obturația dintelui după tratamentul afecțiunilor pulpare sau a gangrenei CAS",
+            price: "207",
+            coplata: "",
+          },
+          {
+            id: 4,
+            name: "Tratamentul de urgență al traumatismelor dento-alveolare/dinte",
+            price: "196",
+            coplata: "",
+          },
+          {
+            id: 5,
+            name: "Tratamentul afecțiunilor pulpare CAS",
+            price: "269",
+            coplata: "",
+          },
+          {
+            id: 6,
+            name: "Pansament calmant / drenaj endodontic",
+            price: "78",
+            coplata: "",
+          },
+          {
+            id: 7,
+            name: "Tratamentul gangrenei pulpare CAS",
+            price: "314",
+            coplata: "",
+          },
+          {
+            id: 8,
+            name: "Tratamentul parodontitelor apicale acute prin incizie",
+            price: "190",
+            coplata: "",
+          },
+          {
+            id: 9,
+            name: "Tratamentul afecțiunilor parodontiului marginal",
+            price: "131",
+            coplata: "",
+          },
+          {
+            id: 10,
+            name: "Tratamentul afecțiunilor mucoasei bucale",
+            price: "76",
+            coplata: "",
+          },
+          {
+            id: 11,
+            name: "Extracție dinte temporar",
+            price: "76",
+            coplata: "",
+          },
+          {
+            id: 12,
+            name: "Extracție dinți permanenți cu anestezie CAS",
+            price: "162",
+            coplata: "",
+          },
+          {
+            id: 13,
+            name: "Chiuretaj alveolar și tratamentul hemoragiei",
+            price: "112",
+            coplata: "",
+          },
+          { id: 14, name: "Element fizionomic", price: "224", coplata: "" },
+          {
+            id: 15,
+            name: "Element semi-fizionimic",
+            price: "258",
+            coplata: "",
+          },
+          {
+            id: 16,
+            name: "Reconstituire corono-radiculară",
+            price: "263",
+            coplata: "",
+          },
+          {
+            id: 17,
+            name: "Detartraj cu ultrasunete și periaj profesional/ambele arcade/1 serviciu pe an",
+            price: "150",
+            coplata: "",
+          },
+          {
+            id: 18,
+            name: "Sigilare/dinte (1/2 ani)",
+            price: "108",
+            coplata: "",
+          },
+          { id: 19, name: "Fluorizare", price: "94", coplata: "" },
+        ],
+      },
+      {
+        id: 3,
+        title:
+          "CAS Tineri 18-26 ani, elevi, studenți, ucenici dacă nu realizează venituri din muncă",
+        services: [
+          { id: 1, name: "Igienizare CAS (1/an)", price: "150", coplata: "" },
+        ],
+      },
+      {
+        id: 4,
+        title: "CAS – Urgențe asigurați + neasigurați",
+        services: [
+          { id: 1, name: "Consultație", price: "149", coplata: "" },
+          {
+            id: 2,
+            name: "Tratamentul de urgență al traumatismelor dento-alveolare/dinte",
+            price: "196",
+            coplata: "",
+          },
+          {
+            id: 3,
+            name: "Pansament calmant / drenaj endodontic",
+            price: "78",
+            coplata: "",
+          },
+          {
+            id: 4,
+            name: "Tratamentul parodontitelor apicale acute prin incizie",
+            price: "190",
+            coplata: "",
+          },
+          {
+            id: 5,
+            name: "Tratamentul afecțiunilor parodontiului marginal",
+            price: "131",
+            coplata: "",
+          },
+          {
+            id: 6,
+            name: "Chiuretaj alveolar și tratamentul hemoragiei",
+            price: "112",
+            coplata: "",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 const Tarife2 = () => {
@@ -378,12 +673,50 @@ const Tarife2 = () => {
 
   const [activeCategory, setActiveCategory] = useState(priceListData[0]);
 
-  useEffect(() => {
-    if (grouppedData.length > 0 && !isEqual(grouppedData, priceListData)) {
-      setPriceListData(grouppedData);
-      setActiveCategory(grouppedData[0]);
-    }
-  }, [grouppedData]);
+    const renderStandardContent = (category) => (
+    <>
+      <h2 className={styles.categoryTitle}>{category.name}</h2>
+      <ul className={styles.servicesList}>
+        {category.services?.map((service) => (
+          <li key={service.id} className={styles.serviceItem}>
+            <span className={styles.serviceName}>{service.name}</span>
+            <span className={styles.servicePrice}>{service.price} Lei</span>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+
+  const renderCasContent = (category) => (
+    <>
+      <h2 className={styles.categoryTitle}>{category.name}</h2>
+      {category.tables?.map((table) => (
+        <div key={table.id} className={styles.casTableWrapper}>
+          <h3 className={styles.casTableTitle}>{table.title}</h3>
+          <div className={styles.tableContainer}>
+            <table className={styles.casTable}>
+              <thead>
+                <tr>
+                  <th className={styles.thName}>Denumire</th>
+                  <th className={styles.thPrice}>Preț</th>
+                  <th className={styles.thCoplata}>Coplată</th>
+                </tr>
+              </thead>
+              <tbody>
+                {table.services.map((service) => (
+                  <tr key={service.id}>
+                    <td className={styles.tdName}>{service.name}</td>
+                    <td className={styles.tdPrice}>{service.price} Lei</td>
+                    <td className={styles.tdCoplata}>{service.coplata ? `${service.coplata} Lei` : "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+    </>
+  );
 
   return (
     <Wrapper>
@@ -417,17 +750,10 @@ const Tarife2 = () => {
 
               {/* Services List */}
               <div className={styles.content}>
-                <h2 className={styles.categoryTitle}>{activeCategory.name}</h2>
-                <ul className={styles.servicesList}>
-                  {activeCategory.services.map((service) => (
-                    <li key={service.id} className={styles.serviceItem}>
-                      <span className={styles.serviceName}>{service.name}</span>
-                      <span className={styles.servicePrice}>
-                        {service.price} Lei
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {activeCategory.type === "cas"
+                  ? renderCasContent(activeCategory)
+                  : renderStandardContent(activeCategory)
+                }
               </div>
             </div>
           </div>

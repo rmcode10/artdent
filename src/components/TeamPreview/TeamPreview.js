@@ -35,8 +35,8 @@ export const TeamPreview = () => {
                 La Clinica ArtDent, fiecare membru al echipei noastre este
                 pasionat și dedicat oferirii îngrijirii de cea mai înaltă
                 calitate. Cu experiență vastă și pregătire continuă, suntem aici
-                pentru a transforma vizitele la dentist într-o experiență
-                confortabilă și pozitivă.
+                pentru a transforma vizitele la medicul stomatolog într-o
+                experiență confortabilă și pozitivă.
               </p>
               <ul className={styles.highlights}>
                 <li>
@@ -46,7 +46,7 @@ export const TeamPreview = () => {
                   </span>
                 </li>
                 <li>
-                  <span className={styles.highlightNumber}>3+</span>
+                  <span className={styles.highlightNumber}>6+</span>
                   <span className={styles.highlightText}>
                     Ani de experiență
                   </span>

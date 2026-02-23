@@ -77,4 +77,12 @@ export const services = [
     href: "/servicii/reabilitare",
     customTextHeight: "107px",
   },
+  {
+    title: "Parodontologie",
+    description:
+      "Parodontologie – Sănătatea gingiilor, cheia unui zâmbet durabil",
+    longDescription: "Parodontologia este specialitatea stomatologică dedicată sănătății gingiilor și a țesuturilor care susțin dinții.",
+    image: "/images/services/parodontologie.png",
+    href: "/servicii/parodontologie",
+  }
 ];

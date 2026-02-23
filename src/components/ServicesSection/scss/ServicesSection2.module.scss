@@ -75,6 +75,8 @@
   @include transition;
   background-color: $card;
   box-shadow: $shadow-md;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     background-color: $sage-100;
@@ -91,6 +93,9 @@
 
     .serviceTitle {
       color: $primary-foreground;
+      flex: 1;
+      display: flex;
+      align-items: center;
     }
   }
 }
@@ -109,6 +114,9 @@
   font-weight: $font-semibold;
   color: $foreground;
   line-height: 1.3;
+  flex: 1;
+  display: flex;
+  align-items: center;
   @include transition(color);
 }
 
@@ -204,7 +212,10 @@
   text-decoration: none;
   color: $primary;
   background-color: #f9f9f9;
-  transition: background-color 0.1s, color 0.1s, border-color 0.1s;
+  transition:
+    background-color 0.1s,
+    color 0.1s,
+    border-color 0.1s;
 }
 
 .serviceLink:hover {

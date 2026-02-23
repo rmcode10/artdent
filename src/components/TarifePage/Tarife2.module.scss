@@ -6,6 +6,7 @@
 }
 
 .header {
+  padding: $spacing-24 0 $spacing-16;
   background-color: $sage-50;
   text-align: center;
 }
@@ -109,6 +110,7 @@
   border-radius: $radius-2xl;
   padding: $spacing-6;
   box-shadow: $shadow-sm;
+  max-height: fit-content;
 
   @include md {
     padding: $spacing-8;
@@ -159,4 +161,104 @@
   font-weight: $font-semibold;
   color: $primary-dark;
   white-space: nowrap;
+}
+
+// CAS Tables
+.casTableWrapper {
+  margin-bottom: $spacing-8;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.casTableTitle {
+  @include font-display;
+  font-size: $text-lg;
+  font-weight: $font-semibold;
+  color: $primary-dark;
+  margin-bottom: $spacing-4;
+
+  @include md {
+    font-size: $text-xl;
+  }
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-bottom: $spacing-4;
+}
+
+.casTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $text-sm;
+
+  @include md {
+    font-size: $text-base;
+  }
+
+  thead {
+    tr {
+      background-color: $sage-100;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: $sage-50;
+      }
+    }
+  }
+}
+
+.thName,
+.thPrice,
+.thCoplata {
+  padding: $spacing-3 $spacing-4;
+  font-weight: $font-semibold;
+  color: $charcoal;
+  text-align: left;
+
+  @include md {
+    padding: $spacing-4;
+  }
+}
+
+.thPrice,
+.thCoplata {
+  width: 120px;
+  white-space: nowrap;
+}
+
+.tdName {
+  padding: $spacing-3 $spacing-4;
+  color: $charcoal;
+
+  @include md {
+    padding: $spacing-4;
+  }
+}
+
+.tdPrice,
+.tdCoplata {
+  padding: $spacing-3 $spacing-4;
+  font-weight: $font-semibold;
+  color: $primary-dark;
+  white-space: nowrap;
+
+  @include md {
+    padding: $spacing-4;
+  }
+}
+
+.tdCoplata {
+  color: $muted-foreground;
 }

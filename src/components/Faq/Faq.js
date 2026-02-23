@@ -20,7 +20,7 @@ const faqData = [
   {
     question: "De ce pot avea încredere în medicii de la Clinica Artdent?",
     answer:
-      "La Clinica Artdent, vei fi tratat de o echipă de profesioniști dedicați, pasionați de sănătatea dentară. Ne perfecționăm constant în a oferi cele mai bune soluții stomatologice pentru tine.",
+      "La Clinica Artdent, vei fi tratat de o echipă de profesioniști dedicați, pasionați de sănătatea orală. Ne perfecționăm constant în a oferi cele mai bune soluții stomatologice pentru tine.",
   },
   {
     question: "Ce servicii oferă Clinica stomatologică Artdent?",
@@ -30,7 +30,7 @@ const faqData = [
   {
     question: "Cum fac o programare?",
     answer:
-      `Pentru a te putea programa la un medic dentist din clinică, ne poți contacta telefonic la ${PHONE_NUMBER}, sau printr-un mesaj pe rețelele sociale. În urma solicitării, echipa noastră îți va confirma disponibilitatea și va stabili cu tine data și ora potrivită`,
+      `Pentru a te putea programa la un medic stomatolog din clinică, ne poți contacta telefonic la ${PHONE_NUMBER}, sau printr-un mesaj pe rețelele sociale. În urma solicitării, echipa noastră îți va confirma disponibilitatea și va stabili cu tine data și ora potrivită`,
   },
 ];
 

@@ -326,17 +326,18 @@
   gap: $spacing-2;
   height: 56px;
   padding: 0 $spacing-10;
-  background-color: $primary;
+  background-color: #2e2e2e;
   color: $primary-foreground;
   font-size: $text-lg;
   font-weight: $font-semibold;
   border-radius: $radius-xl;
   border: none;
+  cursor: pointer;
   @include transition;
   box-shadow: $shadow-primary;
 
   &:hover {
-    background-color: $primary-dark;
+    background-color: #2e2e2e;
     transform: translateY(-2px);
     box-shadow: $shadow-elevated;
   }
@@ -354,15 +355,16 @@
   height: 56px;
   padding: 0 $spacing-10;
   background-color: transparent;
-  color: $primary;
+  color: #2e2e2e;
   font-size: $text-lg;
   font-weight: $font-semibold;
   border-radius: $radius-xl;
-  border: 2px solid $primary;
+  border: 2px solid #2e2e2e;
+  cursor: pointer;
   @include transition;
 
   &:hover {
-    background-color: $primary;
+    background-color: #2e2e2e;
     color: $primary-foreground;
   }
 }

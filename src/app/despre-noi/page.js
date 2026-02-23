@@ -35,13 +35,13 @@ const About = () => {
   return (
     <Wrapper>
       {/* Hero Section */}
-      <section className={styles.heroSection}>
+      <section className={styles.heroSection}> 
         <div className={styles.heroContainer}>
           <div className={styles.heroContent}>
             <span className={styles.label}>Despre Noi</span>
             <h1 className={styles.heroTitle}>
               Partenerul Tău de Încredere în{" "}
-              <span className={styles.highlight}>Sănătatea Dentară</span>
+              <span className={styles.highlight}>Sănătatea Orală</span>
             </h1>
             <p className={styles.heroDescription}>
               De peste 3 ani, oferim servicii stomatologice de excepție
@@ -98,7 +98,7 @@ const About = () => {
                 <p>
                   Acordăm o atenție specială comunicării transparente și
                   explicăm clar fiecare etapă a planului de tratament, pentru ca
-                  vizita la dentist să fie una confortabilă, iar rezultatele să
+                  vizita la medicul stomatolog să fie una confortabilă, iar rezultatele să
                   îți redea zâmbetul și încrederea.
                 </p>
               </div>

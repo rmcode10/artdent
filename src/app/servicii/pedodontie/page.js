@@ -27,7 +27,7 @@ const Pedodontie = () => {
       </p>
       <p>
         Programează o consultație pentru copilul tău și oferă-i un start
-        excelent în sănătatea dentară!
+        excelent în sănătatea orală!
       </p>
       <div className={styles.otherServices}>
         <h2>Alte servicii oferite</h2>

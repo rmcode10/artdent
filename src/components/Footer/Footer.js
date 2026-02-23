@@ -32,6 +32,7 @@ const services = [
   "Chirurgie Orală",
   "Implantologie",
   "Reabilitare implanto-protetică All-on 4/6 by Straumann",
+  "Parodontologie"
 ];
 
 export const Footer = () => {
@@ -130,9 +131,9 @@ export const Footer = () => {
               <li className={styles.contactItem}>
                 <Clock />
                 <span>
-                  Luni - Vineri: 8:00 - 18:00
+                  Luni - Joi: 9:00 - 20:00
                   <br />
-                  Sâmbătă: 9:00 - 15:00
+                  Vineri: 9:00 - 13:00
                 </span>
               </li>
             </ul>

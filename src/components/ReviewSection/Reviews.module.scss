@@ -1,8 +1,6 @@
 @import '../../scss/variables';
 
 .section {
-  padding: $spacing-24 0;
-  padding-top: 0;
   background-color: $sage-50;
   overflow: hidden;
 }
@@ -14,8 +12,7 @@
 .header {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto $spacing-16;
-  margin-bottom: 0;
+  margin: 0 auto;
 }
 
 .label {
@@ -87,29 +84,51 @@
   }
 }
 
-.reviewsGrid {
-  display: grid;
-  gap: $spacing-6;
-
-  @include md {
-    grid-template-columns: repeat(2, 1fr);
+// Infinite scroll
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-  @include lg {
-    grid-template-columns: repeat(3, 1fr);
+.scrollWrapper {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.scrollTrack {
+  display: flex;
+  gap: $spacing-4;
+  width: max-content;
+  animation: scrollLeft 40s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
   }
 }
 
 .reviewCard {
-    display: flex;
-    flex-direction: column;
   background-color: $card;
-  border-radius: $radius-2xl;
-  padding: $spacing-6;
+  border-radius: $radius-xl;
+  padding: $spacing-4 $spacing-5;
   box-shadow: $shadow-md;
   @include transition;
-  @include animate-fade-in;
-  opacity: 0;
+  flex-shrink: 0;
+  width: 300px;
+
+  @include md {
+    width: 340px;
+  }
 
   &:hover {
     box-shadow: $shadow-lg;
@@ -120,7 +139,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 0;
+  margin-bottom: $spacing-3;
 }
 
 .reviewStars {
@@ -129,8 +148,8 @@
   gap: 2px;
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     color: $primary;
     fill: $primary;
   }
@@ -138,54 +157,54 @@
 
 .quoteIcon {
   svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     color: $sage-200;
   }
 }
 
 .reviewText {
   color: $muted-foreground;
-  line-height: 1.7;
-  margin-bottom: $spacing-6;
-  max-height: 250px;
-  overflow: auto;
+  line-height: 1.6;
+  margin-bottom: $spacing-4;
+  font-size: $text-sm;
 }
 
 .reviewFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: $spacing-4;
+  padding-top: $spacing-3;
   border-top: 1px solid $border;
-  margin-top: auto;
 }
 
 .reviewAuthor {
   display: flex;
   align-items: center;
-  gap: $spacing-3;
+  gap: $spacing-2;
 }
 
 .authorAvatar {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: $radius-full;
   background-color: $sage-200;
   @include flex-center;
 
   span {
+    font-size: $text-xs;
     font-weight: $font-semibold;
     color: $sage-600;
   }
 }
 
 .authorName {
+  font-size: $text-sm;
   font-weight: $font-medium;
   color: $foreground;
 }
 
 .reviewDate {
-  font-size: $text-sm;
+  font-size: $text-xs;
   color: $muted-foreground;
 }

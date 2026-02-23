@@ -46,7 +46,7 @@ const Team = () => {
           <div className={styles.heroContent}>
             <span className={styles.label}>Echipa Noastră</span>
             <h1 className={styles.heroTitle}>
-              Cunoaște <span className={styles.highlight}>Experții</span>
+              Cunoaște <span className={styles.highlight}>Medicii Specialiști</span>
             </h1>
             <p className={styles.heroDescription}>
               Echipa noastră de profesioniști experimentați este dedicată să vă

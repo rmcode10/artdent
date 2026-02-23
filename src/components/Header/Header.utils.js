@@ -14,4 +14,8 @@ export const allPages = [
     label: "Reabilitare implanto-protetică All-on 4/6 by Straumann",
     href: "/servicii/reabilitare",
   },
+  {
+    label: "Parodontologie",
+    href: "/servicii/parodontologie",
+  },
 ];
