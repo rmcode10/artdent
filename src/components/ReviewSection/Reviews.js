@@ -83,7 +83,7 @@ export const Reviews = () => {
                 </div>
               </div>
 
-              <p className={styles.reviewText}>"{review.text}"</p>
+              <p className={styles.reviewText}>{review.text}</p>
 
               <div className={styles.reviewFooter}>
                 <div className={styles.reviewAuthor}>
